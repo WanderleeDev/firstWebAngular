@@ -1,0 +1,73 @@
+.sectionData{
+  --colorSecondary: rgb(37, 172, 151);
+  --radius: .8rem;
+  --colorPrimary: rgba(252, 252, 252, 0.178);
+  max-width: max(30rem, 80%);
+  margin-inline: auto;
+
+
+  &-content{
+  }
+
+  &-title{
+    text-align: center;
+  }
+  .table{
+    border-radius: var(--radius);
+    overflow-x: auto;
+    box-shadow: 0 .3rem 1rem 0 rgba( 31, 38, 135, 0.37 );
+    margin-block: 4rem;
+
+    &-header,
+    &-body{
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      list-style: none;
+    }
+
+    &-header{
+      background-color: var(--colorSecondary);
+      text-align: center;
+      text-transform: capitalize;
+      padding-block: 1rem;
+    }
+
+    &-subContainer{
+      min-height: 15rem;
+      background-color: var(--colorPrimary);
+      box-shadow: 0 .3rem 1rem 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 0.3rem );
+      -webkit-backdrop-filter: blur( 0.3rem );
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    &-body{
+      height: 5rem;
+
+      li{
+        overflow-Y: scroll;
+      }
+    }
+
+    &-btnDelete{
+      font-size: 1.5rem;
+      padding: 0.2rem;
+      border-radius: 0.3rem;
+      background-color: rgb(171, 8, 235);
+      cursor: pointer;
+      transition: transform .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      &:hover{
+        transform: scale(0.9);
+      }
+    }
+
+    &-void{
+      text-align: center;
+      height: 15rem;
+      padding: 1rem;
+      font-size: min(4rem,20vw);
+      padding-block: 4rem;
+    }
+  }
+}

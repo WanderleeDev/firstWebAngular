@@ -1,0 +1,34 @@
+<section class="sectionData">
+  <header class="sectionData-header">
+    <h2 class="sectionData-title">
+      List Content
+    </h2>
+  </header>
+
+  <div class="table">
+    <ul class="table-header">
+      <li>item</li>
+      <li>date</li>
+      <li>flag</li>
+      <li>data</li>
+      <li>description</li>
+      <li>delete</li>
+    </ul>
+
+    <div class="table-subContainer">
+      <div class="table-void" *ngIf="dataProduct.length === 0; else listData">
+        ¯\_(ツ)_/¯
+      </div>
+
+      <ng-template #listData>
+        <ul>
+          <li>
+            <button class="table-btnDelete" title="delete item" aria-label="delete item">🗑️</button>
+          </li>
+        </ul>
+      </ng-template>
+
+    </div>
+  </div>
+
+</section>

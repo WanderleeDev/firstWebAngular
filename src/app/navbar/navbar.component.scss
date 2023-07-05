@@ -1,0 +1,96 @@
+.navPage{
+  position: fixed;
+  display: grid;
+  width: max(15rem,25%);
+  background-color: rgb(83, 194, 170);
+  height: 100vh;
+  z-index: 10;
+
+  .btnNav{
+    width: 2rem;
+    height: 2rem;
+    justify-self: flex-end;
+    align-self: center;
+    cursor: pointer;
+  }
+
+  .navList{
+    display: grid;
+    text-align: center;
+    list-style: none;
+    align-items: center;
+
+    &-item{
+      border-radius: .5rem;
+      margin: .2rem .5rem;
+      text-transform: capitalize;
+      padding: 1rem;
+      transition: background-color 0.1s linear;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #5e5757;
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.171);
+      }
+    }
+  }
+
+  .socialItem{
+
+  }
+
+  .socialList{
+    display: grid;
+    max-width: 17rem;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    align-self: flex-end;
+    justify-self: center;
+    gap: 1.5rem;
+    @media screen and (min-width: 32rem) {
+      gap: 1rem;
+    }
+
+    &-item{
+    }
+
+    &-link{
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      letter-spacing: .1rem;
+    }
+
+    &-img{
+      display: block;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.4rem;
+      outline-offset: 0.2rem;
+      background-color: rgb(243, 243, 243);
+      border: solid 1px rgb(0, 0, 0);
+      border-radius: .5rem;
+      outline: solid 2px #333;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    &-title{
+      display: none;
+      padding-block: .5rem;
+      text-transform: capitalize;
+      font-size: .8rem;
+      @media screen and (min-width: 32rem) {
+        display: block;
+      }
+    }
+  }
+}
+
+
+//class utility
+.top{
+  margin-bottom: 2rem;
+}

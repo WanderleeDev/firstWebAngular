@@ -1,0 +1,48 @@
+.registrationTable{
+  --radius: .8rem;
+  --colorPrimary: rgba(252, 252, 252, 0.178);
+  --colorSecondary: rgb(37, 172, 151);
+  display: grid;
+  max-width: 30rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  color: azure;
+  border-radius: var(--radius);
+  background: var(--colorPrimary);
+  box-shadow: 0 .3rem 1rem 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 0.3rem );
+  -webkit-backdrop-filter: blur( 0.3rem );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 10px;
+
+  &-label{
+    display: grid;
+    padding-block: 1rem;
+    &:nth-last-of-type(1) input{
+      height: 8rem;
+    }
+  }
+
+  &-title{
+    text-transform: capitalize;
+    font-weight: 600;
+    padding-block: .2rem;
+  }
+
+  &-input{
+    border-radius: var(--radius);
+    padding: 1rem;
+    width: 100%;
+    border: dotted 1px var(--colorSecondary);
+  }
+
+  &-btnAdd{
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    background-color: var(--colorSecondary);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    justify-self: end;
+  }
+}

@@ -1,0 +1,17 @@
+<nav class="navPage">
+  <button class="btnNav" (click)="isClicked()">&#11164;</button>
+  <ul class="navList">
+    <li class="navList-item">main</li>
+    <li class="navList-item">data</li>
+    <li class="navList-item">extra</li>
+    <li class="navList-item">More info</li>
+  </ul>
+  <ul class="navList socialList top">
+    <li class="socialList-item" *ngFor="let social of socialData">
+      <a class="socialList-link" [href]="social.link" rel="noopener noreferrer" target="_blank">
+        <img class="socialList-img" [src]="social.img" alt="logo {{social.title}}">
+        <span class="socialList-title">{{social.title}}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,10 @@
+<form class="registrationTable" (submit)="handlerSubmit($event)">
+
+  <label *ngFor="let input of listInput" [for]="input.name" class="registrationTable-label">
+    <span class="registrationTable-title">{{input.name}}:</span>
+    <input [id]="input.name" type="text" class="registrationTable-input" [(ngModel)]="input.val" [name]="input.name">
+  </label>
+
+  <input class="registrationTable-btnAdd" type="submit" value="Add Item">
+</form>
+
