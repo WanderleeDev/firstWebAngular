@@ -1,10 +1,12 @@
-<form class="registrationTable" (submit)="handlerSubmit($event)">
+<form class="registrationTable" (submit)="handlerSubmit($event)" [formGroup]="form">
 
   <label *ngFor="let input of listInput" [for]="input.name" class="registrationTable-label">
     <span class="registrationTable-title">{{input.name}}:</span>
-    <input [id]="input.name" type="text" class="registrationTable-input" [(ngModel)]="input.val" [name]="input.name">
+    <input [id]="input.name" type="text" class="registrationTable-input" [(ngModel)]="input.val" [name]="input.name" [formControlName]="input.name">
   </label>
 
-  <input class="registrationTable-btnAdd" type="submit" value="Add Item">
+  <button class="registrationTable-btnAdd" type="submit" [disabled]="form.invalid">
+    Add Item
+  </button>
 </form>
 

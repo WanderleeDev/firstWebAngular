@@ -37,6 +37,7 @@
   }
 
   &-btnAdd{
+    display: block;
     padding: 1rem 1.5rem;
     border-radius: var(--radius);
     background-color: var(--colorSecondary);
@@ -44,5 +45,50 @@
     text-transform: uppercase;
     font-weight: 600;
     justify-self: end;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:hover{
+      transform: scale(0.9);
+    }
+
+    &:disabled{
+      position: relative;
+      background-color: gray;
+      &::before,
+      &::after{
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.623);
+        opacity: 0;
+        cursor: none;
+      }
+      &::before{
+        content: "Se debe registrar todos los datos del producto";
+        width: 10rem;
+        height: 5rem;
+        display: grid;
+        place-content: center;
+        text-transform: capitalize;
+        padding: .1rem .2rem;
+        border-radius: var(--radius);
+        transform: translateX(-3.5rem) translateY(-6.65rem);
+      }
+      &::after{
+        width: 1.5rem;
+        height: 1.5rem;
+        content: '';
+        transform: translateX(2.5rem) translateY(-2.24rem) rotate(45deg);
+        border-bottom-right-radius: .15rem;
+        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+      }
+      &:hover{
+        transform: initial;
+      }
+      &:hover::before,
+      &:hover::after{
+        opacity: 1;
+        transition: opacity 0.2 linear;
+      }
+    }
   }
 }
