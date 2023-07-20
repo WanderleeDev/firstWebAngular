@@ -29,7 +29,6 @@ export class RegistrationTableComponent {
 
 
   handlerSubmit(event:Event){
-    event.preventDefault();
     const validator = this.listInput.every((value)=> Boolean(value.val));
 
     try {
