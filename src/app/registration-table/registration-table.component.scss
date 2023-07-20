@@ -14,13 +14,30 @@
   -webkit-backdrop-filter: blur( 0.3rem );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 10px;
+  @media (width >= 50rem) {
+    max-width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 2rem;
+    align-items: flex-start;
+  }
 
   &-label{
+    position: relative;
     display: grid;
     padding-block: 1rem;
     &:nth-last-of-type(1) input{
       height: 8rem;
     }
+    &:nth-last-of-type(1){
+      @media (width >= 50rem) {
+        grid-area: 2/2/3/4;
+      }
+    }
+  }
+
+  &-group{
+    display: flex;
+    justify-content: space-between;
   }
 
   &-title{
@@ -29,9 +46,39 @@
     padding-block: .2rem;
   }
 
+  &-infoIcon{
+    position: absolute;
+    height: auto;
+    font-weight: 700;
+    //cursor: help;
+    color: rgba(128, 128, 128, 0.582);
+    top: 50%;
+    right: .5rem;
+    transform: translateY(-70%);
+    transition: color .2s linear;
+    &:hover{
+      color: rgb(128, 128, 128);
+    }
+  }
+
+  &-infoText{
+    width: 10rem;
+    top: -.5rem;
+    left: 50%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.568);
+    padding:.3rem .5rem;
+    text-align: center;
+    //border-radius: var(--radius);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    z-index: 1;
+  }
+
   &-input{
     border-radius: var(--radius);
-    padding: 1rem;
+    padding: 1rem 1.7rem 1rem 1rem ;
     width: 100%;
     border: dotted 1px var(--colorSecondary);
   }
@@ -47,6 +94,10 @@
     justify-self: end;
     cursor: pointer;
     transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    @media (width >= 50rem) {
+      grid-area: 3/1/4/4;
+    }
+
     &:hover{
       transform: scale(0.9);
     }
@@ -91,4 +142,17 @@
       }
     }
   }
+}
+
+
+.invalid{
+  height: 1.6rem;
+  color: rgb(255, 78, 78);
+  background-color: rgb(255, 224, 224);
+  width: max-content;
+  padding-inline: 0.5rem;
+  padding-block: 0.1rem;
+  border-radius:  .5rem;
+  margin-block: 0.3rem;
+  margin-left: .1rem;
 }

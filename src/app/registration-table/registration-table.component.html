@@ -1,8 +1,18 @@
 <form class="registrationTable" (submit)="handlerSubmit($event)" [formGroup]="form">
-
-  <label *ngFor="let input of listInput" [for]="input.name" class="registrationTable-label">
+  <label *ngFor="let input of listInput.slice(0,4)" [for]="input.name" class="registrationTable-label">
     <span class="registrationTable-title">{{input.name}}:</span>
-    <input [id]="input.name" type="text" class="registrationTable-input"  [name]="input.name" [formControlName]="input.name">
+    <div class="registrationTable-group">
+      <input [id]="input.name" type="text" class="registrationTable-input"  [name]="input.name" [formControlName]="input.name" #input.name>
+      <span class="registrationTable-infoIcon" (mouseenter)="viewInfo()" (mouseleave)="hiddenInfo()">&#9432;</span>
+      <p *ngIf="isViewInfo" class="registrationTable-infoText">Ingresa el nombre del producto</p>
+    </div>
+    <span class="invalid">campo requerido *</span>
+  </label>
+
+  <label  [for]="listInput[4].name" class="registrationTable-label">
+    <span  class="registrationTable-title">{{listInput[4].name}}:</span>
+    <input [id]="listInput[4].name" type="text" class="registrationTable-input"  [name]="listInput[4].name" [formControlName]="listInput[4].name">
+    <span class="registrationTable-infoIcon">&#9432;</span>
   </label>
 
   <button class="registrationTable-btnAdd" type="submit" [disabled]="form.invalid">

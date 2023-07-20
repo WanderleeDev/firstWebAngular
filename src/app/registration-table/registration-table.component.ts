@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { InputData } from '../interface/inputData.interface';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { RegistrationDataService } from '../services/resgistrationData/registration-data.service';
+import { FormGroup } from '@angular/forms';
 
 
 
@@ -18,14 +19,15 @@ export class RegistrationTableComponent {
     { name: 'data' , val:''},
     { name: 'description' , val:''}
   ];
+  isViewInfo: boolean = false;
 
-  form = new FormGroup({
-    item: new FormControl( '' ,[Validators.required]),
-    date: new FormControl( '' ,[Validators.required]),
-    flag: new FormControl( '' ,[Validators.required]),
-    data: new FormControl( '' ,[Validators.required]),
-    description: new FormControl(' ',[Validators.required])
-  });
+  form: FormGroup;
+
+  constructor(
+    private registrationDataService : RegistrationDataService
+  ){
+    this.form = registrationDataService.getFormValidate();
+  }
 
 
   handlerSubmit(event:Event){
@@ -41,5 +43,13 @@ export class RegistrationTableComponent {
 
   saveLocal(){
     localStorage.setItem('data',JSON.stringify(this.listInput));
+  }
+
+  viewInfo(){
+    this.isViewInfo = true;
+  }
+  
+  hiddenInfo(){
+    this.isViewInfo = false;
   }
 }
