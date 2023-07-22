@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderPageComponent } from './header-page/header-page.component';
 import { RegistrationTableComponent } from './registration-table/registration-table.component';
 import { ContentTableComponent } from './content-table/content-table.component';
+import { NavbarWebComponent } from './navbar-web/navbar-web.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ContentTableComponent } from './content-table/content-table.component';
     NavbarComponent,
     HeaderPageComponent,
     RegistrationTableComponent,
-    ContentTableComponent
+    ContentTableComponent,
+    NavbarWebComponent
   ],
   imports: [
     BrowserModule,
