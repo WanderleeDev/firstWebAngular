@@ -1,0 +1,25 @@
+.nav{
+  margin-block: 4rem;
+  &-listData{
+    border: solid 1px red;
+    width: min(80%, 45rem);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 1rem 2rem;
+    margin-inline: auto;
+  }
+  
+  &-item{
+    padding: .5rem 1rem;
+    background-color: var(--colorSecondary, #25ac97);
+    border-radius: var(--radius, .8rem);
+    font-weight: 600;
+    letter-spacing: .2rem;
+    cursor: pointer;
+    @media (width >= 35rem) {
+      padding: 1rem 2rem;
+    }
+  }
+}

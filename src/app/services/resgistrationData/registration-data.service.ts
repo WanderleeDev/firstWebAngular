@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationDataService {
 
-  constructor() { }
+  constructor( private formBuilder: FormBuilder) { }
 
-  private formValidate = new FormGroup({
-    item: new FormControl( '' ,[Validators.required]),
-    date: new FormControl( '' ,[Validators.required]),
-    flag: new FormControl( '' ,[Validators.required]),
-    data: new FormControl( '' ,[Validators.required]),
-    description: new FormControl('',[Validators.required])
+  formValidate = this.formBuilder.group({ 
+    item: ['' ,Validators.required],
+    date: ['' ,Validators.required],
+    flag: ['' ,Validators.required],
+    data: ['' ,Validators.required],
+    description: ['',Validators.required]
   });
 
   getFormValidate(){

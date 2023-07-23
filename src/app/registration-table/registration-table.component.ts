@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { InputData } from '../interface/inputData.interface';
 import { RegistrationDataService } from '../services/resgistrationData/registration-data.service';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 
@@ -13,36 +13,39 @@ import { FormGroup } from '@angular/forms';
 export class RegistrationTableComponent {
 
   listInput: InputData[] = [
-    { name: 'item' , val:''},
-    { name: 'date' , val:''},
-    { name: 'flag' , val:''},
-    { name: 'data' , val:''},
-    { name: 'description' , val:''}
+    { name: 'item'},
+    { name: 'date'},
+    { name: 'flag'},
+    { name: 'data'},
+    { name: 'description'}
   ];
+
   isViewInfo: boolean = false;
 
-  form: FormGroup;
+  formProducts: FormGroup;
 
   constructor(
     private registrationDataService : RegistrationDataService
   ){
-    this.form = registrationDataService.getFormValidate();
+    this.formProducts = registrationDataService.getFormValidate();
   }
 
-
   handlerSubmit(event:Event){
-    const validator = this.listInput.every((value)=> Boolean(value.val));
+    if (this.formProducts.valid) {
+      
+      console.log(this.formProducts.value);
+      this.saveLocal();
+      this.formProducts.reset();
+      return this.formProducts.value;
+    } 
+  }
 
-    try {
-      if (validator) {
-        console.log(this.listInput);
-        this.saveLocal();
-      }
-    } catch (error) {console.error(error);}
+  getInputState(input: string ): FormControl {
+    return this.formProducts.get(input) as FormControl
   }
 
   saveLocal(){
-    localStorage.setItem('data',JSON.stringify(this.listInput));
+    localStorage.setItem('data',JSON.stringify(this.formProducts.value));
   }
 
   viewInfo(){

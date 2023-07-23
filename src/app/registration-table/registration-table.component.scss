@@ -25,10 +25,8 @@
     position: relative;
     display: grid;
     padding-block: 1rem;
-    &:nth-last-of-type(1) input{
-      height: 8rem;
-    }
-    &:nth-last-of-type(1){
+
+    &:nth-last-of-type(2){
       @media (width >= 50rem) {
         grid-area: 2/2/3/4;
       }
@@ -52,9 +50,9 @@
     font-weight: 700;
     //cursor: help;
     color: rgba(128, 128, 128, 0.582);
-    top: 50%;
+    top: 60%;
     right: .5rem;
-    transform: translateY(-70%);
+    transform: translateY(-40%);
     transition: color .2s linear;
     &:hover{
       color: rgb(128, 128, 128);
@@ -99,13 +97,16 @@
     }
 
     &:hover{
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
 
     &:disabled{
       position: relative;
       background-color: gray;
-      &::before,
+      &:hover{
+        transform: scale(1);
+      }
+      /*&::before,
       &::after{
         position: absolute;
         inset: 0;
@@ -139,7 +140,7 @@
       &:hover::after{
         opacity: 1;
         transition: opacity 0.2 linear;
-      }
+      }*/
     }
   }
 }
