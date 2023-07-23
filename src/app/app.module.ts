@@ -9,6 +9,8 @@ import { HeaderPageComponent } from './header-page/header-page.component';
 import { RegistrationTableComponent } from './registration-table/registration-table.component';
 import { ContentTableComponent } from './content-table/content-table.component';
 import { NavbarWebComponent } from './navbar-web/navbar-web.component';
+import { ColorChangerComponent } from './color-changer/color-changer.component';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { NavbarWebComponent } from './navbar-web/navbar-web.component';
     HeaderPageComponent,
     RegistrationTableComponent,
     ContentTableComponent,
-    NavbarWebComponent
+    NavbarWebComponent,
+    ColorChangerComponent
   ],
   imports: [
     BrowserModule,

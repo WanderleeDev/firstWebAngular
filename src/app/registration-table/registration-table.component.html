@@ -10,8 +10,11 @@
     </div>
     <span [hidden]="getInputState(input.name).valid || getInputState(input.name).pristine" class="invalid">campo requerido *</span>
   </label>
-
-  <button class="registrationTable-btnAdd" type="submit" [disabled]="formProducts.invalid">
-    Add Item
-  </button>
+  <div class="registrationTable-footer">
+    <app-color-changer></app-color-changer>
+  
+    <button class="registrationTable-btnAdd" type="submit" [disabled]="formProducts.invalid">
+      Add Item
+    </button>
+  </div>
 </form>

@@ -1,7 +1,7 @@
 .registrationTable{
   --radius: .8rem;
   --colorPrimary: rgba(252, 252, 252, 0.178);
-  --colorSecondary: rgb(37, 172, 151);
+  --colorSecondary: #25ac97;
   display: grid;
   max-width: 30rem;
   margin: 2rem auto;
@@ -79,6 +79,14 @@
     padding: 1rem 1.7rem 1rem 1rem ;
     width: 100%;
     border: dotted 1px var(--colorSecondary);
+  }
+
+  &-footer{
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &-btnAdd{
