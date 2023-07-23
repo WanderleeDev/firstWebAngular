@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { InputData } from '../interface/inputData.interface';
 import { RegistrationDataService } from '../services/resgistrationData/registration-data.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { IColorObject } from '../interface/objectColor.interface';
+import { ITotalData } from '../interface/totalData.interface';
 
 
 
@@ -20,9 +22,16 @@ export class RegistrationTableComponent {
     { name: 'description'}
   ];
 
+  formProducts: FormGroup;
+
+  color: IColorObject = {
+    colorList: '#25ac97'
+  };
+
+  productData: ITotalData[] = [];
+
   isViewInfo: boolean = false;
 
-  formProducts: FormGroup;
 
   constructor(
     private registrationDataService : RegistrationDataService
@@ -32,20 +41,15 @@ export class RegistrationTableComponent {
 
   handlerSubmit(event:Event){
     if (this.formProducts.valid) {
-      
-      console.log(this.formProducts.value);
-      this.saveLocal();
+      const data: ITotalData = {...this.formProducts.value,...this.color}
+      this.productData.push(data);
+      this.registrationDataService.saveLocal(this.productData)
       this.formProducts.reset();
-      return this.formProducts.value;
     } 
   }
-
+  //  acceder a los estados de los inputs
   getInputState(input: string ): FormControl {
     return this.formProducts.get(input) as FormControl
-  }
-
-  saveLocal(){
-    localStorage.setItem('data',JSON.stringify(this.formProducts.value));
   }
 
   viewInfo(){
@@ -54,5 +58,9 @@ export class RegistrationTableComponent {
   
   hiddenInfo(){
     this.isViewInfo = false;
+  }
+
+  getColor(data: string){
+    this.color.colorList = data;
   }
 }

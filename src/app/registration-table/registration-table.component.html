@@ -1,7 +1,6 @@
 <form class="registrationTable"  [formGroup]="formProducts" (ngSubmit)="handlerSubmit($event)">
 
-  <label *ngFor="let input of listInput.slice(0,5)" [for]="input.name" class="registrationTable-label">
-
+  <label *ngFor="let input of listInput" [for]="input.name" class="registrationTable-label">
     <span class="registrationTable-title">{{input.name}} :</span>
     <div class="registrationTable-group">
       <input [id]="input.name" type="text" class="registrationTable-input"  [name]="input.name" [formControlName]="input.name">
@@ -10,9 +9,11 @@
     </div>
     <span [hidden]="getInputState(input.name).valid || getInputState(input.name).pristine" class="invalid">campo requerido *</span>
   </label>
+
   <div class="registrationTable-footer">
-    <app-color-changer></app-color-changer>
-  
+    <!-- colorPicker -->
+    <app-color-changer (dataSubmit)="getColor($event)"/>
+
     <button class="registrationTable-btnAdd" type="submit" [disabled]="formProducts.invalid">
       Add Item
     </button>
