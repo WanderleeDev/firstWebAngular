@@ -1,0 +1,24 @@
+<footer class="footer">
+  <div class="list-wrapper">
+    <h3 class="list-title">Used technologies</h3>
+    <ul class="list-content">
+      <li class="list-item" *ngFor="let tech of listTechnology">
+        {{tech}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="list-wrapper">
+    <h3 class="list-title">Used tools</h3>
+    <ul class="list-content">
+      <li class="list-item" *ngFor="let tool of listTools">
+        {{tool}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="networks-wrapper">
+    <app-social-networks/>
+  </div>
+  <p class="footer-credit">Developed by <span>WanderleeDev</span> - 2023</p>
+</footer>

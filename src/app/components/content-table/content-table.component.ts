@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //  interfaces
-import { ITotalData } from '../interface/totalData.interface';
+import { ITotalData } from 'src/app/interface/totalData.interface';
 //  services
-import { LocalStorageService } from '../services/localStorage/local-storage.service';
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-content-table',

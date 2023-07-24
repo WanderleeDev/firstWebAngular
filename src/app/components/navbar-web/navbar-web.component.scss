@@ -1,13 +1,12 @@
 .nav{
   margin-block: 4rem;
   &-listData{
-    border: solid 1px red;
     width: min(80%, 45rem);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     list-style: none;
-    gap: 1rem 2rem;
+    gap: 1rem 4rem;
     margin-inline: auto;
   }
   

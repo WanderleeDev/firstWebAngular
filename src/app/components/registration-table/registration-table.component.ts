@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 //  interface and  types
-import { InputData } from '../interface/inputData.interface';
-import { IColorObject } from '../interface/objectColor.interface';
-import { ITotalData } from '../interface/totalData.interface';
+import { InputData } from '../../interface/inputData.interface';
+import { IColorObject } from '../../interface/objectColor.interface';
+import { ITotalData } from '../../interface/totalData.interface';
 //  services
-import { RegistrationDataService } from '../services/resgistrationData/registration-data.service';
-import { LocalStorageService } from '../services/localStorage/local-storage.service';
+import { RegistrationDataService } from '../../services/resgistrationData/registration-data.service';
+import { LocalStorageService } from '../../services/localStorage/local-storage.service';
 
 
 

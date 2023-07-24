@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { SocialData } from '../interface/SocialData.interface';
+import { SocialData } from 'src/app/interface/SocialData.interface';
+
+
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-social-networks',
+  templateUrl: './social-networks.component.html',
+  styleUrls: ['./social-networks.component.scss']
 })
-export class NavbarComponent {
+export class SocialNetworksComponent {
   socialData :SocialData[] = [
     {
       link: 'https://github.com/WanderleeDev',
@@ -24,8 +26,4 @@ export class NavbarComponent {
       title: 'instagram'
     }
   ];
-
-  isClicked():void {
-    console.log('click');
-  }
 }
