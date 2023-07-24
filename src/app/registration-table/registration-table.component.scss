@@ -34,6 +34,7 @@
   }
 
   &-group{
+    position: relative;
     display: flex;
     justify-content: space-between;
   }
@@ -46,13 +47,11 @@
 
   &-infoIcon{
     position: absolute;
-    height: auto;
     font-weight: 700;
-    //cursor: help;
-    color: rgba(128, 128, 128, 0.582);
-    top: 60%;
+    color: rgb(100, 100, 100);
+    top: 50%;
     right: .5rem;
-    transform: translateY(-40%);
+    transform: translateY(-50%);
     transition: color .2s linear;
     &:hover{
       color: rgb(128, 128, 128);
@@ -61,13 +60,12 @@
 
   &-infoText{
     width: 10rem;
-    top: -.5rem;
-    left: 50%;
+    top: -100%;
+    right: 0;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.568);
     padding:.3rem .5rem;
     text-align: center;
-    //border-radius: var(--radius);
     font-size: .8rem;
     font-weight: 600;
     letter-spacing: 0.1rem;
@@ -79,6 +77,9 @@
     padding: 1rem 1.7rem 1rem 1rem ;
     width: 100%;
     border: dotted 1px var(--colorSecondary);
+    background-color: #f0f8ff71;
+    color: #333;
+    letter-spacing: 0.1rem;
   }
 
   &-footer{
@@ -117,41 +118,6 @@
       &:hover{
         transform: scale(1);
       }
-      /*&::before,
-      &::after{
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.623);
-        opacity: 0;
-        cursor: none;
-      }
-      &::before{
-        content: "Se debe registrar todos los datos del producto";
-        width: 10rem;
-        height: 5rem;
-        display: grid;
-        place-content: center;
-        text-transform: capitalize;
-        padding: .1rem .2rem;
-        border-radius: var(--radius);
-        transform: translateX(-3.5rem) translateY(-6.65rem);
-      }
-      &::after{
-        width: 1.5rem;
-        height: 1.5rem;
-        content: '';
-        transform: translateX(2.5rem) translateY(-2.24rem) rotate(45deg);
-        border-bottom-right-radius: .15rem;
-        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-      }
-      &:hover{
-        transform: initial;
-      }
-      &:hover::before,
-      &:hover::after{
-        opacity: 1;
-        transition: opacity 0.2 linear;
-      }*/
     }
   }
 }

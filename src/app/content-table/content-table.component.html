@@ -5,30 +5,62 @@
     </h2>
   </header>
 
-  <div class="table">
-    <ul class="table-header">
-      <li>item</li>
-      <li>date</li>
-      <li>flag</li>
-      <li>data</li>
-      <li>description</li>
-      <li>delete</li>
-    </ul>
+  <table class="table">
+    <thead class="table-header">
+      <tr>
+        <th>item</th>
+        <th>date</th>
+        <th>flag</th>
+        <th>data</th>
+        <th>Price</th>
+        <th>delete</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <div class="table-void" *ngIf="!dataProduct.length">
+        {{dataProduct.length}}
+        <span>
+          ¯\_(ツ)_/¯
+        </span>
+        <p>Sin contenido</p>
+      </div>  -->
+      <tr *ngFor="let d of dataProduct">
+        <td data="Item" >{{d.item}}</td>        
+        <td data="Date" >{{d.date}}</td>        
+        <td data="Flag" >{{d.data}}</td>        
+        <td data="Data" >{{d.data}}</td>
+        <td data="Price" >{{d.price | currency:'USD'}}</td>        
+        <td data="Delete">
+          <button class="btnDelete" title="delete item" aria-label="delete item">🗑️</button>
+        </td>        
+      </tr>
 
-    <div class="table-subContainer">
-      <div class="table-void" *ngIf="dataProduct.length === 0; else listData">
-        ¯\_(ツ)_/¯
-      </div>
 
-      <ng-template #listData>
-        <ul>
-          <li>
-            <button class="table-btnDelete" title="delete item" aria-label="delete item">🗑️</button>
-          </li>
-        </ul>
-      </ng-template>
-
-    </div>
-  </div>
+      <!-- <tr>
+        <td data="Item :">data</td>
+        <td data="Date :">data</td>
+        <td data="Flag :">data</td>
+        <td data="Data :">data</td>
+        <td data="Ext :">data</td>
+        <td data="Delete :">data</td>
+      </tr> -->
+    </tbody>
+</table>
 
 </section>
+
+<!-- 
+    <div class="table-subContainer">
+      <div class="table-void" *ngIf="dataProduct.length">
+        <span>
+          ¯\_(ツ)_/¯
+        </span>
+        <p>Sin contenido</p>
+      </div> -->
+<!-- <ng-template #listData>
+  <ul>
+    <li>
+
+    </li>
+  </ul>
+</ng-template> -->

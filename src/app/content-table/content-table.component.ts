@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+//  interfaces
+import { ITotalData } from '../interface/totalData.interface';
+//  services
+import { LocalStorageService } from '../services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-content-table',
   templateUrl: './content-table.component.html',
   styleUrls: ['./content-table.component.scss']
 })
-export class ContentTableComponent {
-  dataProduct=[
-    {}
-  ];
+export class ContentTableComponent implements OnInit {
+
+  dataProduct!: ITotalData[];
+
+  constructor( private localStorageService: LocalStorageService){}
+
+  ngOnInit(){
+    const data = this.localStorageService.getLocalData();
+    this.dataProduct = data ?? [] ;
+    console.log(this.dataProduct);
+  }
+
 }

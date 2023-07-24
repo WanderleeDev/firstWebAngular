@@ -18,14 +18,14 @@
 
   &-input{
     display: block;
-    transform: scale(8);
+    transform: scale(3) translateY(0.21rem);
   }
 
   &-description {
     transform: translateX(-1rem);
     border-radius: var(--radius);
     padding: .5rem .8rem .5rem 1.5rem;
-    background-color: white;
     text-align: center;
+    background-color: #f0f8ffd7;
   }
 }

@@ -1,4 +1,4 @@
-<form class="registrationTable"  [formGroup]="formProducts" (ngSubmit)="handlerSubmit($event)">
+<form class="registrationTable"  [formGroup]="formProducts" (ngSubmit)="handlerSubmit($event)" autocomplete="off">
 
   <label *ngFor="let input of listInput" [for]="input.name" class="registrationTable-label">
     <span class="registrationTable-title">{{input.name}} :</span>

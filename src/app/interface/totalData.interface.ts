@@ -7,4 +7,10 @@ import { IColorObject } from "./objectColor.interface";
 //  type CombinedTypes = IColorObject | InputData;
 
 //  en una interface
-export interface ITotalData extends InputData, IColorObject { }
+export interface ITotalData extends InputData, IColorObject {
+  item: string,
+  date: string,
+  flags: string,
+  data: string,
+  price: string
+}

@@ -1,6 +1,6 @@
-<label class="colorPicker" for="" [ngStyle]="{color: colorValue}">
+<label class="colorPicker" for="picker" [ngStyle]="{color: colorValue}">
   <div class="colorPicker-wrapper">
-    <input (blur)="emitColor()" class="colorPicker-input" type="color" [(ngModel)]="colorValue" [value]="colorValue">
+    <input id="picker" (blur)="emitColor()" class="colorPicker-input" type="color" [(ngModel)]="colorValue" [value]="colorValue">
   </div>
   <p class="colorPicker-description" [ngStyle]="{border: 'solid .15rem currentColor'}">
     Color de lista 

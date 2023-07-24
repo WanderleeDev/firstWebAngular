@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import { InputData } from '../interface/inputData.interface';
-import { RegistrationDataService } from '../services/resgistrationData/registration-data.service';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+//  interface and  types
+import { InputData } from '../interface/inputData.interface';
 import { IColorObject } from '../interface/objectColor.interface';
 import { ITotalData } from '../interface/totalData.interface';
+//  services
+import { RegistrationDataService } from '../services/resgistrationData/registration-data.service';
+import { LocalStorageService } from '../services/localStorage/local-storage.service';
 
 
 
@@ -12,14 +15,14 @@ import { ITotalData } from '../interface/totalData.interface';
   templateUrl: './registration-table.component.html',
   styleUrls: ['./registration-table.component.scss']
 })
-export class RegistrationTableComponent {
+export class RegistrationTableComponent implements OnInit {
 
   listInput: InputData[] = [
     { name: 'item'},
     { name: 'date'},
     { name: 'flag'},
     { name: 'data'},
-    { name: 'description'}
+    { name: 'price'}
   ];
 
   formProducts: FormGroup;
@@ -28,22 +31,27 @@ export class RegistrationTableComponent {
     colorList: '#25ac97'
   };
 
-  productData: ITotalData[] = [];
+  productData!: ITotalData[];
 
   isViewInfo: boolean = false;
 
 
   constructor(
-    private registrationDataService : RegistrationDataService
+    private registrationDataService : RegistrationDataService,
+    private localStorageService : LocalStorageService
   ){
     this.formProducts = registrationDataService.getFormValidate();
+  }
+
+  ngOnInit(): void {
+    this.productData = this.localStorageService.getLocalData();
   }
 
   handlerSubmit(event:Event){
     if (this.formProducts.valid) {
       const data: ITotalData = {...this.formProducts.value,...this.color}
-      this.productData.push(data);
-      this.registrationDataService.saveLocal(this.productData)
+      this.productData!.push(data);
+      this.localStorageService.saveLocal(this.productData)
       this.formProducts.reset();
     } 
   }
