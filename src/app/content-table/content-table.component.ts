@@ -20,5 +20,4 @@ export class ContentTableComponent implements OnInit {
     this.dataProduct = data ?? [] ;
     console.log(this.dataProduct);
   }
-
 }

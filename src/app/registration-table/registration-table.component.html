@@ -9,7 +9,6 @@
     </div>
     <span [hidden]="getInputState(input.name).valid || getInputState(input.name).pristine" class="invalid">campo requerido *</span>
   </label>
-
   <div class="registrationTable-footer">
     <!-- colorPicker -->
     <app-color-changer (dataSubmit)="getColor($event)"/>

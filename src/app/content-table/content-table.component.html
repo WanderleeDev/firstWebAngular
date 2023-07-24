@@ -24,10 +24,10 @@
         </span>
         <p>Sin contenido</p>
       </div>  -->
-      <tr *ngFor="let d of dataProduct">
+      <tr [ngStyle]="{'background-color':d.colorList | applyTransparency: 0.4}" *ngFor="let d of dataProduct">
         <td data="Item" >{{d.item}}</td>        
-        <td data="Date" >{{d.date}}</td>        
-        <td data="Flag" >{{d.data}}</td>        
+        <td data="Date" >{{d.date | date}}</td>        
+        <td data="Flag" >{{d.flag}}</td>        
         <td data="Data" >{{d.data}}</td>
         <td data="Price" >{{d.price | currency:'USD'}}</td>        
         <td data="Delete">

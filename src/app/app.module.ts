@@ -10,6 +10,7 @@ import { RegistrationTableComponent } from './registration-table/registration-ta
 import { ContentTableComponent } from './content-table/content-table.component';
 import { NavbarWebComponent } from './navbar-web/navbar-web.component';
 import { ColorChangerComponent } from './color-changer/color-changer.component';
+import { ApplyTransparencyPipe } from './pipes/apply-transparency.pipe';
 
 
 
@@ -21,7 +22,8 @@ import { ColorChangerComponent } from './color-changer/color-changer.component';
     RegistrationTableComponent,
     ContentTableComponent,
     NavbarWebComponent,
-    ColorChangerComponent
+    ColorChangerComponent,
+    ApplyTransparencyPipe
   ],
   imports: [
     BrowserModule,

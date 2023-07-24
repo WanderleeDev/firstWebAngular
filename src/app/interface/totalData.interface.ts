@@ -10,7 +10,7 @@ import { IColorObject } from "./objectColor.interface";
 export interface ITotalData extends InputData, IColorObject {
   item: string,
   date: string,
-  flags: string,
+  flag: string,
   data: string,
   price: string
 }
