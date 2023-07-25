@@ -21,7 +21,7 @@ export class SocialNetworksComponent {
       title: 'linkedin'
     },
     {
-      link: '#',
+      link: 'https://404-not-found-dev-challenges.vercel.app',
       img: 'https://www.dropbox.com/s/ovytnyl4icboa85/instagram-line.svg?raw=1',
       title: 'instagram'
     }

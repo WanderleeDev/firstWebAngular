@@ -104,12 +104,14 @@
     justify-self: end;
     cursor: pointer;
     transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-    @media (width >= 50rem) {
-      grid-area: 3/1/4/4;
-    }
-
     &:hover{
       transform: scale(0.95);
+    }
+    &:active{
+      transform: scale(1.1);
+    }
+    @media (width >= 50rem) {
+      grid-area: 3/1/4/4;
     }
 
     &:disabled{

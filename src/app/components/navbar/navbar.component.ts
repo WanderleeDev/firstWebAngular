@@ -7,6 +7,7 @@ import { SocialData } from 'src/app/interface/SocialData.interface';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  hasNavActive = false;
   socialData :SocialData[] = [
     {
       link: 'https://github.com/WanderleeDev',
@@ -25,7 +26,9 @@ export class NavbarComponent {
     }
   ];
 
-  isClicked():void {
-    console.log('click');
+  isClicked() {
+    this.hasNavActive = !this.hasNavActive;
+    console.log(this.hasNavActive);
+    
   }
 }
