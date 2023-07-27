@@ -15,6 +15,7 @@ import { FooterPageComponent } from './components/footer-page/footer-page.compon
 import { SocialNetworksComponent } from './social-networks/social-networks.component';
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
 import { WorkZoneComponentComponent } from './components/work-zone-component/work-zone-component.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -31,7 +32,8 @@ import { WorkZoneComponentComponent } from './components/work-zone-component/wor
     FooterPageComponent,
     SocialNetworksComponent,
     EmptyStateComponent,
-    WorkZoneComponentComponent
+    WorkZoneComponentComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
