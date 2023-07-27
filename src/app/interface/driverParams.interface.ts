@@ -1,9 +1,14 @@
-export interface DriverParams{
+export interface DriverParam {
+  showProgress: boolean,
+  steps: Steps[],
+}
+
+export interface Steps {
   element:string,
   popover: PopPover
 }
 
-interface PopPover{
+export interface PopPover{
   title:string,
   description:string
 }
