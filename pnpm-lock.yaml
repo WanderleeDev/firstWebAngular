@@ -25,6 +25,9 @@ dependencies:
   '@angular/router':
     specifier: ^16.1.0
     version: 16.1.0(@angular/common@16.1.0)(@angular/core@16.1.0)(@angular/platform-browser@16.1.0)(rxjs@7.8.0)
+  driver.js:
+    specifier: ^1.1.0
+    version: 1.1.0
   exceljs:
     specifier: ^4.3.0
     version: 4.3.0
@@ -51,6 +54,9 @@ devDependencies:
   '@types/jasmine':
     specifier: ~4.3.0
     version: 4.3.0
+  css-loader:
+    specifier: ^6.8.1
+    version: 6.8.1(webpack@5.86.0)
   jasmine-core:
     specifier: ~4.6.0
     version: 4.6.0
@@ -69,6 +75,9 @@ devDependencies:
   karma-jasmine-html-reporter:
     specifier: ~2.1.0
     version: 2.1.0(jasmine-core@4.6.0)(karma-jasmine@5.1.0)(karma@6.4.0)
+  style-loader:
+    specifier: ^3.3.3
+    version: 3.3.3(webpack@5.86.0)
   typescript:
     specifier: ~5.1.3
     version: 5.1.3
@@ -2090,7 +2099,7 @@ packages:
     resolution: {integrity: sha512-7kZUAaLscfgbwBQRbvdMYaZOWyMEcPTH/tJjnyAWJ/dvvs9Ef+CERx/qJb9GExJpl1qipaDGn7KqHnFGGixd0w==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
-      semver: 7.5.1
+      semver: 7.5.3
     dev: true
 
   /@npmcli/git@4.1.0:
@@ -2103,7 +2112,7 @@ packages:
       proc-log: 3.0.0
       promise-inflight: 1.0.1
       promise-retry: 2.0.1
-      semver: 7.5.1
+      semver: 7.5.3
       which: 3.0.1
     transitivePeerDependencies:
       - bluebird
@@ -2940,7 +2949,7 @@ packages:
   /builtins@5.0.1:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
-      semver: 7.5.1
+      semver: 7.5.3
     dev: true
 
   /bytes@3.0.0:
@@ -3317,7 +3326,7 @@ packages:
       postcss-modules-scope: 3.0.0(postcss@8.4.24)
       postcss-modules-values: 4.0.0(postcss@8.4.24)
       postcss-value-parser: 4.2.0
-      semver: 7.5.1
+      semver: 7.5.3
       webpack: 5.86.0(esbuild@0.17.19)
     dev: true
 
@@ -3488,6 +3497,10 @@ packages:
       domelementtype: 2.3.0
       domhandler: 5.0.3
     dev: true
+
+  /driver.js@1.1.0:
+    resolution: {integrity: sha512-jvor5wrzu0JmHwPAuCb7j8YzHcgitq5ibgCsgBO85fv0Zst/UPdO60/hKooCKMdQMYRPKABmSDhVSftS6NaJqA==}
+    dev: false
 
   /duplexer2@0.1.4:
     resolution: {integrity: sha512-asLFVfWWtJ90ZyOUHMqk7/S2w2guQKxUI2itj3d92ADHhxUSbCMGi1f1cBcJ7xM1To+pE/Khbwo1yuNbMEPKeA==}
@@ -5271,7 +5284,7 @@ packages:
       nopt: 6.0.0
       npmlog: 6.0.2
       rimraf: 3.0.2
-      semver: 7.5.1
+      semver: 7.5.3
       tar: 6.1.15
       which: 2.0.2
     transitivePeerDependencies:
@@ -5296,7 +5309,7 @@ packages:
     dependencies:
       hosted-git-info: 6.1.1
       is-core-module: 2.12.1
-      semver: 7.5.1
+      semver: 7.5.3
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -5320,7 +5333,7 @@ packages:
     resolution: {integrity: sha512-dH3GmQL4vsPtld59cOn8uY0iOqRmqKvV+DLGwNXV/Q7MDgD2QfOADWd/mFXcIE5LVhYYGjA3baz6W9JneqnuCw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
-      semver: 7.5.1
+      semver: 7.5.3
     dev: true
 
   /npm-normalize-package-bin@3.0.1:
@@ -5334,7 +5347,7 @@ packages:
     dependencies:
       hosted-git-info: 6.1.1
       proc-log: 3.0.0
-      semver: 7.5.1
+      semver: 7.5.3
       validate-npm-package-name: 5.0.0
     dev: true
 
@@ -5352,7 +5365,7 @@ packages:
       npm-install-checks: 6.1.1
       npm-normalize-package-bin: 3.0.1
       npm-package-arg: 10.1.0
-      semver: 7.5.1
+      semver: 7.5.3
     dev: true
 
   /npm-registry-fetch@14.0.5:
@@ -5656,7 +5669,7 @@ packages:
       jiti: 1.19.0
       klona: 2.0.6
       postcss: 8.4.24
-      semver: 7.5.1
+      semver: 7.5.3
       webpack: 5.86.0(esbuild@0.17.19)
     dev: true
 
@@ -6497,6 +6510,15 @@ packages:
   /strip-final-newline@2.0.0:
     resolution: {integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==}
     engines: {node: '>=6'}
+    dev: true
+
+  /style-loader@3.3.3(webpack@5.86.0):
+    resolution: {integrity: sha512-53BiGLXAcll9maCYtZi2RCQZKa8NQQai5C4horqKyRmHj9H7QmcUyucrH+4KW/gBQbXM2AsB0axoEcFZPlfPcw==}
+    engines: {node: '>= 12.13.0'}
+    peerDependencies:
+      webpack: ^5.0.0
+    dependencies:
+      webpack: 5.86.0(esbuild@0.17.19)
     dev: true
 
   /supports-color@5.5.0:

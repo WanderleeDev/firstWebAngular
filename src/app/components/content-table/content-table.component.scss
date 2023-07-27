@@ -1,7 +1,7 @@
 .sectionData{
   --colorSecondary: rgb(37, 172, 151);
   --radius: .8rem;
-  --colorPrimary: rgba(252, 252, 252, 0.178);
+  --colorPrimary: #fcfcfc2d;
 
   max-width: max(30rem, 80%);
   margin: 2rem auto;
@@ -11,6 +11,7 @@
 }
 
 .table{
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -32,8 +33,10 @@
   }
 
   tbody{
+    position: relative;
     display: grid;
     gap: 2rem;
+    min-height: 15rem;
     @media (width >= 40rem) {
       gap: 0rem;
     }

@@ -1,19 +1,19 @@
-<form class="registrationTable"  [formGroup]="formProducts" (ngSubmit)="handlerSubmit($event)" autocomplete="off">
+<form (click)="activateDriver()" id="form" class="registrationTable"  [formGroup]="formProducts" (ngSubmit)="handlerSubmit($event)" autocomplete="off">
 
-  <label *ngFor="let input of listInput" [for]="input.name" class="registrationTable-label">
+  <label id="la1" *ngFor="let input of listInput" [for]="input.name" class="registrationTable-label">
     <span class="registrationTable-title">{{input.name}} :</span>
     <div class="registrationTable-group">
       <input [id]="input.name" type="text" class="registrationTable-input"  [name]="input.name" [formControlName]="input.name">
-      <span class="registrationTable-infoIcon" (mouseenter)="viewInfo()" (mouseleave)="hiddenInfo()">&#9432;</span>
+      <span id="la2" class="registrationTable-infoIcon" (mouseenter)="viewInfo()" (mouseleave)="hiddenInfo()">&#9432;</span>
       <p *ngIf="isViewInfo" class="registrationTable-infoText">Ingresa el nombre del producto</p>
     </div>
     <span [hidden]="getInputState(input.name).valid || getInputState(input.name).pristine" class="invalid">campo requerido *</span>
   </label>
   <div class="registrationTable-footer">
     <!-- colorPicker -->
-    <app-color-changer (dataSubmit)="getColor($event)"/>
+    <app-color-changer id="la3" (dataSubmit)="getColor($event)"/>
 
-    <button class="registrationTable-btnAdd" type="submit" [disabled]="formProducts.invalid">
+    <button  class="registrationTable-btnAdd" type="submit" [disabled]="formProducts.invalid">
       Add Item
     </button>
   </div>

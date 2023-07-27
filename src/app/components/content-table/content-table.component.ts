@@ -11,13 +11,13 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 })
 export class ContentTableComponent implements OnInit {
 
-  dataProduct!: ITotalData[];
+  dataProduct: ITotalData[] = [];
 
   constructor( private localStorageService: LocalStorageService){}
 
-  ngOnInit(){
-    const data = this.localStorageService.getLocalData();
-    this.dataProduct = data ?? [] ;
-    console.log(this.dataProduct);
+  ngOnInit(): void{
+    this.dataProduct = this.localStorageService.getLocalData();
+    console.log('[DEBUG] Data saved:', this.dataProduct);    
+    
   }
 }

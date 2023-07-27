@@ -7,6 +7,8 @@ import { ITotalData } from '../../interface/totalData.interface';
 //  services
 import { RegistrationDataService } from '../../services/resgistrationData/registration-data.service';
 import { LocalStorageService } from '../../services/localStorage/local-storage.service';
+import { DriverService } from 'src/app/services/driverJS/driver-js.service';
+import { driver } from "driver.js";
 
 
 
@@ -27,6 +29,16 @@ export class RegistrationTableComponent implements OnInit {
 
   formProducts: FormGroup;
 
+  paramsTour =  {showProgress: true,
+    steps: [
+      { element: '#form', popover: { title: 'Title', description: 'Description' } },
+      { element: '#la1', popover: { title: 'Title', description: 'Description' } },
+      { element: '#la2', popover: { title: 'Title', description: 'Description' } },
+      { element: '#la3', popover: { title: 'Title', 
+      description:"<img src='https://i.imgur.com/EAQhHu5.gif' style='height: 202.5px; width: 270px;' /><span style='font-size: 15px; display: block; margin-top: 10px; text-align: center;'>Yet another highlight example.</span>" } },
+    ]
+  }
+
   color: IColorObject = {
     colorList: '#25ac97'
   };
@@ -38,7 +50,8 @@ export class RegistrationTableComponent implements OnInit {
 
   constructor(
     private registrationDataService : RegistrationDataService,
-    private localStorageService : LocalStorageService
+    private localStorageService : LocalStorageService, 
+    private driverService : DriverService
   ){
     this.formProducts = registrationDataService.getFormValidate();
   }
@@ -70,5 +83,10 @@ export class RegistrationTableComponent implements OnInit {
 
   getColor(data: string){
     this.color.colorList = data;
+  }
+
+  
+  activateDriver(){
+    this.driverService.driverObj.drive()
   }
 }

@@ -13,6 +13,7 @@ import { ColorChangerComponent } from './components/color-changer/color-changer.
 import { ApplyTransparencyPipe } from './pipes/apply-transparency.pipe';
 import { FooterPageComponent } from './components/footer-page/footer-page.component';
 import { SocialNetworksComponent } from './social-networks/social-networks.component';
+import { EmptyStateComponent } from './components/empty-state/empty-state.component';
 
 
 
@@ -27,7 +28,8 @@ import { SocialNetworksComponent } from './social-networks/social-networks.compo
     ColorChangerComponent,
     ApplyTransparencyPipe,
     FooterPageComponent,
-    SocialNetworksComponent
+    SocialNetworksComponent,
+    EmptyStateComponent
   ],
   imports: [
     BrowserModule,

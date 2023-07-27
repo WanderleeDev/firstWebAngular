@@ -16,14 +16,8 @@
         <th>delete</th>  
       </tr>
     </thead>
-    <tbody>
-      <!-- <div class="table-void" *ngIf="!dataProduct.length">
-        {{dataProduct.length}}
-        <span>
-          ¯\_(ツ)_/¯
-        </span>
-        <p>Sin contenido</p>
-      </div>  -->
+    <tbody >
+      <app-empty-state *ngIf="!dataProduct.length"></app-empty-state>
       <tr [ngStyle]="{'background-color':d.colorList | applyTransparency: 0.4}" *ngFor="let d of dataProduct">
         <td data="Item" >{{d.item}}</td>        
         <td data="Date" >{{d.date | date}}</td>        
@@ -34,33 +28,7 @@
           <button class="btnDelete" title="delete item" aria-label="delete item">🗑️</button>
         </td>        
       </tr>
-
-
-      <!-- <tr>
-        <td data="Item :">data</td>
-        <td data="Date :">data</td>
-        <td data="Flag :">data</td>
-        <td data="Data :">data</td>
-        <td data="Ext :">data</td>
-        <td data="Delete :">data</td>
-      </tr> -->
     </tbody>
 </table>
 
 </section>
-
-<!-- 
-    <div class="table-subContainer">
-      <div class="table-void" *ngIf="dataProduct.length">
-        <span>
-          ¯\_(ツ)_/¯
-        </span>
-        <p>Sin contenido</p>
-      </div> -->
-<!-- <ng-template #listData>
-  <ul>
-    <li>
-
-    </li>
-  </ul>
-</ng-template> -->

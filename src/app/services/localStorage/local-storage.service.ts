@@ -5,31 +5,27 @@ import { ITotalData } from 'src/app/interface/totalData.interface';
   providedIn: 'root'
 })
 export class LocalStorageService {
+  // guarda datos en el local storage
   saveLocal(object: ITotalData[]){
     localStorage.setItem('data',JSON.stringify(object));
-    console.log(object);
-    
+    console.log(`'[DEBUG] Data saved:' ${object}`);
   }
 
-  getLocalData():ITotalData[] {
-    //  recupera datos del local storage
+  //  recupera datos del local storage
+  getLocalData(): ITotalData[] {
     const dataStorage = localStorage.getItem('data');
 
-    //  verifica si es contenido es null
-    if( dataStorage === null){
-      return [];
-    }
-
-    try {
-    //  parsea los datos almacenados en el local storage
-      return JSON.parse(dataStorage);
-    } catch (error) {
-    //  imprime el error y retorna null
-      console.error(`Error al parsear los datos almacenados en el Local Storage:  ${error}`);
-      return [];
-    }
+    if (dataStorage !== null ) {
+      try {
+        return JSON.parse(dataStorage);
+      } catch (error) {
+        console.error(`'[DEBUG] Error parsing data:' ${error}`);
+      }
+    } 
+    return [];
   }
 
+  //Limpia los datos almacenados en el local storage
   clearData(){
     localStorage.clear();
   }
