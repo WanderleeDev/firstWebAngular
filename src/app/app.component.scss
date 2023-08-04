@@ -2,3 +2,6 @@
   display: grid;
   gap: 4rem;
 }
+router-outlet{
+  display: none;
+}

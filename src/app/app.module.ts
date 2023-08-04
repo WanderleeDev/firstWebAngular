@@ -16,6 +16,9 @@ import { SocialNetworksComponent } from './social-networks/social-networks.compo
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
 import { WorkZoneComponentComponent } from './components/work-zone-component/work-zone-component.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { DataSectionComponent } from './components/data-section/data-section.component';
+import { AboutComponent } from './components/about/about.component';
+import { MainRegisterComponent } from './components/main-register/main-register.component';
 
 
 
@@ -33,7 +36,10 @@ import { LoaderComponent } from './components/loader/loader.component';
     SocialNetworksComponent,
     EmptyStateComponent,
     WorkZoneComponentComponent,
-    LoaderComponent
+    LoaderComponent,
+    DataSectionComponent,
+    AboutComponent,
+    MainRegisterComponent
   ],
   imports: [
     BrowserModule,
