@@ -7,7 +7,8 @@ import { WorkZoneComponentComponent } from './components/work-zone-component/wor
 const routes: Routes = [
   {path: '', component: MainRegisterComponent},
   {path: 'dataSection', component: DataSectionComponent},
-  {path: 'about', component: WorkZoneComponentComponent}
+  {path: 'about', component: WorkZoneComponentComponent},
+  {path:'**', pathMatch:'full', redirectTo:''}
 ];
 
 @NgModule({

@@ -1,10 +1,19 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { ITotalData } from 'src/app/interface/totalData.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
+
+
+  private mainTotalData:ITotalData[] = []
+
+  saveTemporalProducts(objData: ITotalData){
+    this.mainTotalData.push(objData )
+  }
+
   // guarda datos en el local storage
   saveLocal(object: ITotalData[]){
     localStorage.setItem('data',JSON.stringify(object));
@@ -21,7 +30,7 @@ export class LocalStorageService {
       } catch (error) {
         console.error(`'[DEBUG] Error parsing data:' ${error}`);
       }
-    } 
+    }
     return [];
   }
 

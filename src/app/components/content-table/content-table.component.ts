@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //  interfaces
 import { ITotalData } from 'src/app/interface/totalData.interface';
+import { Subscription } from 'rxjs';
 //  services
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 
@@ -11,13 +12,16 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 })
 export class ContentTableComponent implements OnInit {
 
+  private productSuscribe:Subscription = new Subscription();
+
   dataProduct: ITotalData[] = [];
 
-  constructor( private localStorageService: LocalStorageService){}
+  constructor( private localStorageService: LocalStorageService){
+    
+  }
 
   ngOnInit(): void{
     this.dataProduct = this.localStorageService.getLocalData();
     console.log('[DEBUG] Data saved:', this.dataProduct);    
-    
   }
 }
