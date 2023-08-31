@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DataSectionComponent } from './components/data-section/data-section.component';
-import { MainRegisterComponent } from './components/main-register/main-register.component';
-import { WorkZoneComponentComponent } from './components/work-zone-component/work-zone-component.component';
+import { DataSectionComponent } from './data-section/pages/data-section.component';
+import { WorkZoneComponent } from './work-zone/pages/work-zone.component';
+import { HomeComponent } from './home/pages/home.component';
+
+
 
 const routes: Routes = [
-  {path: '', component: MainRegisterComponent},
+  {path: '', component: HomeComponent},
   {path: 'dataSection', component: DataSectionComponent},
-  {path: 'about', component: WorkZoneComponentComponent},
+  {path: 'about', component: WorkZoneComponent},
   {path:'**', pathMatch:'full', redirectTo:''}
 ];
 

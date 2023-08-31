@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { ITotalData } from 'src/app/interface/totalData.interface';
+import { ITotalData } from 'src/app/shared/interface/totalData.interface';
 
 @Injectable({
   providedIn: 'root'

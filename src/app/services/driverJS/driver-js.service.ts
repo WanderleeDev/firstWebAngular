@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { driver } from "driver.js";
-import {  Steps } from 'src/app/interface/driverParams.interface';
+import {  Steps } from 'src/app/shared/interface/driverParams.interface';
 //import '../../../assets/img//animate/gifCat.webp'
 
 @Injectable({
@@ -18,9 +18,9 @@ export class DriverService {
 
 /*
 ** Ejemplo de parámetros:
-** 
+**
 ** showProgressValue: boolean = true;
-** 
+**
 ** paramsTour: Steps[] = [
 **   { element: '#form', popover: { title: 'Title', description: 'Description' } },
 **   { element: '#la1', popover: { title: 'Title', description: 'Description' } },
