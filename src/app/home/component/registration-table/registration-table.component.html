@@ -1,17 +1,31 @@
-<form id="form" class="registrationTable"  autocomplete="off">
+<form
+  class="registrationTable"
+  (submit)="getValidForm()"
+  [formGroup]="formData"
+  id="form"
+  autocomplete="off">
 
   <label *ngFor="let input of listInput, index as i" [for]="input" class="registrationTable-label">
     <span class="registrationTable-title">{{input}} :</span>
     <div class="registrationTable-group">
-      <input [id]="input"  type="text" class="registrationTable-input"  [name]="input" >
+      <input
+        class="registrationTable-input"
+        [id]="input"
+        type="text"
+        [name]="input"
+        [formControlName]="input">
       <span class="registrationTable-infoIcon">&#9432;</span>
     </div>
+
   </label>
   <div class="registrationTable-footer">
     <!-- colorPicker -->
     <!-- <app-color-changer (dataSubmit)="getColor($event)"/> -->
 
-    <button  class="registrationTable-btnAdd" type="submit" >
+    <button
+    class="registrationTable-btnAdd"
+    type="submit"
+    [disabled]="formData.invalid" >
       Add Item
     </button>
   </div>

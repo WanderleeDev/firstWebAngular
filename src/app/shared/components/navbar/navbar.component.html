@@ -1,11 +1,27 @@
 <nav class="navPage" [ngClass]="{'appearNav': hasNavActive}">
   <button class="btnNav" (click)="isClicked()" aria-label="open navbar" title="open navbar">&#11164;</button>
   <ul class="navList">
-    <li routerLink="" (click)="isClicked()" class="navList-item">main</li>
-    <li routerLink="dataSection" (click)="isClicked()" class="navList-item">data</li>
-    <li routerLink="about" (click)="isClicked()" class="navList-item">extra</li>
-    <li (click)="isClicked()" class="navList-item">
-      <a href="#footer">
+    <li class="navList-item">
+      <a routerLink=""
+        (click)="isClicked()">
+        main
+      </a>
+    </li>
+    <li class="navList-item">
+      <a routerLink="dataSection"
+        (click)="isClicked()">
+        data
+      </a>
+    </li>
+    <li  class="navList-item">
+      <a routerLink="about"
+        (click)="isClicked()">
+        extra
+      </a>
+    </li>
+    <li  class="navList-item">
+      <a href="#footer"
+        (click)="isClicked()">
         More info
       </a>
     </li>

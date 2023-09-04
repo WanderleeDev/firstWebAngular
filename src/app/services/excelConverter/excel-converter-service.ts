@@ -6,5 +6,4 @@ import * as excelJs from 'exceljs'
 })
 export class ExcelConverterServiceTsService {
 
-  constructor() { }
 }
