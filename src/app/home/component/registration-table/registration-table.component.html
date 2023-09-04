@@ -5,15 +5,15 @@
   id="form"
   autocomplete="off">
 
-  <label *ngFor="let input of listInput, index as i" [for]="input" class="registrationTable-label">
-    <span class="registrationTable-title">{{input}} :</span>
+  <label *ngFor="let input of listInput | keyvalue" [for]="input.key" class="registrationTable-label">
+    <span class="registrationTable-title">{{input.key}} :</span>
     <div class="registrationTable-group">
       <input
         class="registrationTable-input"
-        [id]="input"
+        [id]="input.key"
         type="text"
-        [name]="input"
-        [formControlName]="input">
+        [name]="input.key"
+        [formControlName]="input.key">
       <span class="registrationTable-infoIcon">&#9432;</span>
     </div>
 
