@@ -6,13 +6,17 @@ import { HomeRoutingModule } from './home-routing.module';
 import { RegistrationTableComponent } from './component/registration-table/registration-table.component';
 import { ContentTableComponent } from './component/content-table/content-table.component';
 import { HomeComponent } from './pages/home.component';
+import { EmptyStateComponent } from './component/empty-state/empty-state.component';
+import { BtnTableComponent } from './component/btn-table/btn-table.component';
 
 
 @NgModule({
   declarations: [
     RegistrationTableComponent,
-    ContentTableComponent,
     HomeComponent,
+    EmptyStateComponent,
+    ContentTableComponent,
+    BtnTableComponent
   ],
   imports: [
     CommonModule,

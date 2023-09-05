@@ -10,7 +10,6 @@ import { HeaderPageComponent } from './shared/components/header-page/header-page
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { NavbarWebComponent } from './shared/components/navbar-web/navbar-web.component';
 import { SocialNetworksComponent } from './shared/components/social-networks/social-networks.component';
-import { HomeModule } from './home/home.module';
 import { DataSectionModule } from './data-section/data-section.module';
 
 
@@ -31,8 +30,9 @@ import { DataSectionModule } from './data-section/data-section.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HomeModule,
     DataSectionModule
+  ],
+  exports: [
   ],
   providers: [],
   bootstrap: [AppComponent]

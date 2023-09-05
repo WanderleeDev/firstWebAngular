@@ -5,11 +5,20 @@
 
   max-width: max(30rem, 80%);
   margin: 2rem auto;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 2rem;
+  }
+
   &-title{
-    margin-block: 0rem 3rem;
+    //margin-block: 0rem 3rem;
     text-align: center;
     font-size: clamp(1.4rem, 3rem, 5vw );
   }
+
 }
 
 .table{
@@ -67,7 +76,7 @@
       }
     }
   }
-  
+
   tr{
     display: flex;
     flex-direction: column;

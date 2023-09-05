@@ -1,0 +1,27 @@
+.tableControl {
+  display: flex;
+  gap: 1rem;
+
+  &-btn {
+    display: flex;
+    gap: .5rem;
+    padding: .5rem 1rem;
+    font-weight: 600;
+    border: solid .15rem var(--colorSecondary, #25ac97);
+    background: #03030350;
+    border-radius: var(--radius);
+    cursor: pointer;
+    letter-spacing: .1rem;
+
+    &:hover {
+      background: var(--colorSecondary, #25ac97);
+    }
+  }
+
+  &-btnText {
+    display: none;
+    @media screen and (min-width: 50rem) {
+      display: block;
+    }
+  }
+}

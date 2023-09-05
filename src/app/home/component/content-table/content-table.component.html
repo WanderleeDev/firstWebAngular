@@ -3,6 +3,7 @@
     <h2 class="sectionData-title">
     Your table
     </h2>
+    <app-btn-table *ngIf="dataTable.length !== 0" [dataTable]="dataTable"/>
   </header>
 
   <table class="table">
@@ -17,8 +18,9 @@
       </tr>
     </thead>
     <tbody >
-<!-- 
-      <tr *ngFor="let d of dataProduct">
+      <app-empty-state *ngIf="dataTable.length <= 0"/>
+
+      <tr *ngFor="let d of dataTable">
         <td data="Item" >{{d.item}}</td>
         <td data="Date" >{{d.date }}</td>
         <td data="Flag" >{{d.flag}}</td>
@@ -27,8 +29,9 @@
         <td data="Delete">
           <button class="btnDelete" title="delete item" aria-label="delete item">🗑️</button>
         </td>
-      </tr> -->
+      </tr>
     </tbody>
-</table>
+  </table>
 
 </section>
+
