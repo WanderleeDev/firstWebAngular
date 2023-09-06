@@ -1,8 +1,8 @@
 <section class="sectionData">
   <header class="sectionData-header">
-    <h2 class="sectionData-title">
+    <h3 class="sectionData-title">
     Your table
-    </h2>
+    </h3>
     <app-btn-table *ngIf="dataTable.length !== 0" [dataTable]="dataTable"/>
   </header>
 
@@ -20,7 +20,8 @@
     <tbody >
       <app-empty-state *ngIf="dataTable.length <= 0"/>
 
-      <tr *ngFor="let d of dataTable">
+      <tr *ngFor="let d of dataTable"
+        [style]="{background:  d.color | colorTransparency: 0.5}">
         <td data="Item" >{{d.item}}</td>
         <td data="Date" >{{d.date }}</td>
         <td data="Flag" >{{d.flag}}</td>

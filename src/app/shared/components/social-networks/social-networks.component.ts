@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SocialData } from 'src/app/shared/interface/SocialData.interface';
+import { ISocialData } from '../../interface/ISocialData.interface';
 
 
 
@@ -9,7 +9,7 @@ import { SocialData } from 'src/app/shared/interface/SocialData.interface';
   styleUrls: ['./social-networks.component.scss']
 })
 export class SocialNetworksComponent {
-  socialData :SocialData[] = [
+  socialData: ISocialData[] = [
     {
       link: 'https://github.com/WanderleeDev',
       img: 'https://www.dropbox.com/s/h93470tp28epe1j/github-line.svg?raw=1',

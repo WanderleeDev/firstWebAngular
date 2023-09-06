@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ApplyTransparencyPipe } from './shared/pipes/apply-transparency.pipe';
 import { FooterPageComponent } from './shared/components/footer-page/footer-page.component';
 import { HeaderPageComponent } from './shared/components/header-page/header-page.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
@@ -18,7 +16,6 @@ import { DataSectionModule } from './data-section/data-section.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ApplyTransparencyPipe,
     FooterPageComponent,
     HeaderPageComponent,
     NavbarComponent,
@@ -28,8 +25,6 @@ import { DataSectionModule } from './data-section/data-section.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     DataSectionModule
   ],
   exports: [

@@ -1,0 +1,18 @@
+<label class="colorPicker"
+  for="picker">
+  <div class="colorPicker-wrapper">
+    <input id="picker"
+      (blur)="emitColor(initialValue)"
+      class="colorPicker-input"
+      type="color"
+      name="colorPicker"
+      [(ngModel)]="initialValue">
+  </div>
+  <p class="colorPicker-description"
+    [ngStyle]="{
+      border: 'solid .15rem',
+      borderColor: initialValue
+    }">
+    row color
+  </p>
+</label>

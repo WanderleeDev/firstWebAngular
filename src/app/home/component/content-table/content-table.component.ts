@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 //  services
-import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { DataTablesService } from 'src/app/services/dataTables/data-tables.service';
 //  interfaces
 import { IRowTable } from 'src/app/services/dataTables/IRowTable.interface';
@@ -11,7 +10,7 @@ import { IRowTable } from 'src/app/services/dataTables/IRowTable.interface';
   templateUrl: './content-table.component.html',
   styleUrls: ['./content-table.component.scss']
 })
-export class ContentTableComponent  implements OnInit {
+export class ContentTableComponent  implements OnInit, OnDestroy {
   dataTable: IRowTable[] = []
   private tableSub!: Subscription;
 
@@ -19,10 +18,13 @@ export class ContentTableComponent  implements OnInit {
     private dataTablesService: DataTablesService
   ){}
 
-    ngOnInit(): void {
-      this.tableSub = this.dataTablesService.getTableObservable()
-        .subscribe((res) => {
-          this.dataTable = res
-        })
-    }
+  ngOnInit(): void {
+    this.tableSub = this.dataTablesService.getTableObservable()
+      .subscribe((res) => {
+        this.dataTable = res
+      })
+  }
+  ngOnDestroy(): void {
+    this.tableSub.unsubscribe()
+  }
 }

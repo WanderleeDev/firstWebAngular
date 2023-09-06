@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { RegistrationTableComponent } from './component/registration-table/registration-table.component';
@@ -8,6 +8,8 @@ import { ContentTableComponent } from './component/content-table/content-table.c
 import { HomeComponent } from './pages/home.component';
 import { EmptyStateComponent } from './component/empty-state/empty-state.component';
 import { BtnTableComponent } from './component/btn-table/btn-table.component';
+import { ColoPickerComponent } from './component/colo-picker/colo-picker.component';
+import { ColorTransparencyPipe } from './pipes/color-transparency.pipe';
 
 
 @NgModule({
@@ -16,12 +18,15 @@ import { BtnTableComponent } from './component/btn-table/btn-table.component';
     HomeComponent,
     EmptyStateComponent,
     ContentTableComponent,
-    BtnTableComponent
+    BtnTableComponent,
+    ColoPickerComponent,
+    ColorTransparencyPipe,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     ContentTableComponent

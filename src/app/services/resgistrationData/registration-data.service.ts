@@ -28,12 +28,8 @@ export class RegistrationDataService {
   }
   //  valida y obtiene el valor del formulario
   public validateForm(form: FormGroup<IFormValidate>): any {
-    if (form.valid) {
-      console.log(form.value);
-      return form.value
-    }
-    else {
-      console.log(form.errors)
-    }
+    return (form.valid)
+      ? (console.log(form.value), form.value)
+      : console.log(form.errors)
   }
 }

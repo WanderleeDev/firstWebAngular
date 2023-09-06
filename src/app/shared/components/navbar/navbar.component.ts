@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SocialData } from 'src/app/shared/interface/SocialData.interface';
+import { ISocialData } from '../../interface/ISocialData.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +8,7 @@ import { SocialData } from 'src/app/shared/interface/SocialData.interface';
 })
 export class NavbarComponent {
   hasNavActive = false;
-  socialData :SocialData[] = [
+  socialData :ISocialData[] = [
     {
       link: 'https://github.com/WanderleeDev',
       img: 'https://www.dropbox.com/s/h93470tp28epe1j/github-line.svg?raw=1',

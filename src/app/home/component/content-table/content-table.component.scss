@@ -52,7 +52,7 @@
       gap: 0rem;
     }
     tr{
-      background-color: rgba(255, 0, 0, 0.329);
+      background-color: rgba(255, 255, 255, 0.329);
       border-radius: var(--radius);
       @media (width >= 40rem) {
         border-top: solid 1px ;
@@ -85,7 +85,6 @@
     padding: .5rem;
     text-align: left;
     gap: 0.2rem;
-    //background-color: var(--colorPrimary);
     @media (width >= 40rem) {
       flex-direction: row;
     }

@@ -1,1 +1,12 @@
-<app-content-table />
+<section *ngIf="groupTables.length > 0; else emptySection">
+  <h2>Your Tables</h2>
+  <div>
+    <app-content-table *ngFor="let table  of groupTables"/>
+  </div>
+</section>
+
+<ng-template #emptySection>
+  <div class="emptySection">
+    no tables saved...
+  </div>
+</ng-template>

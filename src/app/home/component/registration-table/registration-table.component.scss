@@ -92,7 +92,7 @@
       grid-area: 3/1/4/4;
     }
   }
-
+  
   &-btnAdd{
     display: block;
     padding: 1rem 1.5rem;
@@ -117,8 +117,42 @@
     &:disabled{
       position: relative;
       background-color: gray;
+      cursor: not-allowed;
+      &::after,
+      &::before {
+        position: absolute;
+        content: '';
+        background-color: #000000;
+        font-weight: 500;
+        opacity: 0;
+        transition: linear .1s opacity;
+        pointer-events: none;
+      }
+      &::before {
+        content: 'You must fill all the cells of the form';
+        width: 10rem;
+        left: 0;
+        top: 0;
+        padding: .3rem;
+        font-size: .9rem;
+        line-height: 1.5;
+        transform: translateY(-6rem) translateX(-2rem);
+        z-index: 1;
+      }
+      &::after {
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        top: 0;
+        transform: rotate(45deg) translateY(-3rem);
+        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+      }
       &:hover{
         transform: scale(1);
+        &::before,
+        &::after {
+          opacity: 1;
+        }
       }
     }
   }

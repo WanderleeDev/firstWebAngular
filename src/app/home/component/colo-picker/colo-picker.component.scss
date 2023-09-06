@@ -1,0 +1,32 @@
+.colorPicker {
+  display: grid;
+  gap: 0rem;
+  grid-template-columns: repeat(2, auto);
+  text-transform: capitalize;
+  font-weight: 600;
+  padding-block: .2rem;
+  align-items: center;
+
+  &-wrapper{
+    position: relative;
+    width: 3.0625rem;
+    height: 3.0625rem;
+    overflow: hidden;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &-input{
+    display: block;
+    transform: scale(3) translateY(0.21rem);
+  }
+
+  &-description {
+    transform: translateX(-1rem);
+    border-radius: var(--radius);
+    padding: .5rem .8rem .5rem 1.5rem;
+    text-align: center;
+    background-color: #f0f8ffd7;
+    color: #555;
+  }
+}

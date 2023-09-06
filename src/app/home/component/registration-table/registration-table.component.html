@@ -1,12 +1,14 @@
 <form
-  class="registrationTable"
-  (submit)="getValidForm()"
-  [formGroup]="formData"
   id="form"
+  class="registrationTable"
+  (submit)="getValidForm(colorRow)"
+  [formGroup]="formData"
   autocomplete="off">
 
   <label *ngFor="let input of listInput | keyvalue" [for]="input.key" class="registrationTable-label">
-    <span class="registrationTable-title">{{input.key}} :</span>
+    <span class="registrationTable-title">
+      {{input.key}} :
+    </span>
     <div class="registrationTable-group">
       <input
         class="registrationTable-input"
@@ -19,13 +21,12 @@
 
   </label>
   <div class="registrationTable-footer">
-    <!-- colorPicker -->
-    <!-- <app-color-changer (dataSubmit)="getColor($event)"/> -->
-
+    <app-colo-picker (colorEmitter)="getColor($event)" />
     <button
     class="registrationTable-btnAdd"
     type="submit"
-    [disabled]="formData.invalid" >
+    [disabled]="formData.invalid"
+    aria-label="Add to Table" >
       Add Item
     </button>
   </div>
