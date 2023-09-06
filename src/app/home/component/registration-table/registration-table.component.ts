@@ -5,7 +5,7 @@ import { RegistrationDataService } from 'src/app/services/resgistrationData/regi
 import { DataTablesService } from 'src/app/services/dataTables/data-tables.service';
 // interface
 import { IFormValidate } from 'src/app/services/resgistrationData/IFormValidate.interface';
-import { IRow } from 'src/app/services/dataTables/IRowTable.interface';
+import { IRow } from 'src/app/services/dataTables/IRowBoard.interface';
 
 @Component({
   selector: 'app-registration-table',

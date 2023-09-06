@@ -1,7 +1,13 @@
-<section *ngIf="groupTables.length > 0; else emptySection">
+<section *ngIf="boardGroup.length > 0; else emptySection">
   <h2>Your Tables</h2>
-  <div>
-    <app-content-table *ngFor="let table  of groupTables"/>
+  <div *ngFor="let table  of boardGroup">
+    <p>{{table.id}}</p>
+    <app-content-table [hasSubscription]="false"/>
+    <pre>
+      <code>
+        {{table.boardDta | json}}
+      </code>
+    </pre>
   </div>
 </section>
 

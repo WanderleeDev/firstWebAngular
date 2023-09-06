@@ -6,12 +6,12 @@ export interface IRow {
   price: string
 }
 
-export interface IRowTable extends IRow {
+export interface IRowBoard extends IRow {
   id: string,
   color: string,
 }
 
 export interface IBoardGroup {
   id: string,
-  boardDta: IRowTable[]
+  boardDta: IRowBoard[]
 }

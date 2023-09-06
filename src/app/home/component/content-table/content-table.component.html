@@ -3,7 +3,7 @@
     <h3 class="sectionData-title">
     Your table
     </h3>
-    <app-btn-table *ngIf="dataTable.length !== 0" [dataTable]="dataTable"/>
+    <app-btn-table *ngIf="dataBoard.length !== 0" [dataBoard]="dataBoard"/>
   </header>
 
   <table class="table">
@@ -18,9 +18,9 @@
       </tr>
     </thead>
     <tbody >
-      <app-empty-state *ngIf="dataTable.length <= 0"/>
+      <app-empty-state *ngIf="dataBoard.length <= 0"/>
 
-      <tr *ngFor="let d of dataTable"
+      <tr *ngFor="let d of dataBoard"
         [style]="{background:  d.color | colorTransparency: 0.5}">
         <td data="Item" >{{d.item}}</td>
         <td data="Date" >{{d.date }}</td>

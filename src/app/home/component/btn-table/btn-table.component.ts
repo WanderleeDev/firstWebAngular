@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IRowTable } from 'src/app/services/dataTables/IRowTable.interface';
+import { IRowBoard } from 'src/app/services/dataTables/IRowBoard.interface';
 import { DataTablesService } from 'src/app/services/dataTables/data-tables.service';
 
 @Component({
@@ -8,16 +8,16 @@ import { DataTablesService } from 'src/app/services/dataTables/data-tables.servi
   styleUrls: ['./btn-table.component.scss']
 })
 export class BtnTableComponent {
-  @Input() dataTable: IRowTable[] = []
+  @Input() dataBoard: IRowBoard[] = []
 
   constructor (
     private dataTablesService: DataTablesService
   ) {}
 
-  public clearDataTable() {
+  public clearDataBoard() {
     this.dataTablesService.clearTable()
   }
-  public saveDataTable(table:IRowTable[]) {
+  public saveDataBoard(table:IRowBoard[]) {
     this.dataTablesService.saveTableGroup(table)
   }
 }

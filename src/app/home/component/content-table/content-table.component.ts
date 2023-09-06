@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 //  services
 import { DataTablesService } from 'src/app/services/dataTables/data-tables.service';
 //  interfaces
-import { IRowTable } from 'src/app/services/dataTables/IRowTable.interface';
+import { IRowBoard } from 'src/app/services/dataTables/IRowBoard.interface';
 
 @Component({
   selector: 'app-content-table',
@@ -11,20 +11,23 @@ import { IRowTable } from 'src/app/services/dataTables/IRowTable.interface';
   styleUrls: ['./content-table.component.scss']
 })
 export class ContentTableComponent  implements OnInit, OnDestroy {
-  dataTable: IRowTable[] = []
-  private tableSub!: Subscription;
+  @Input() hasSubscription = true;
+  @Input() dataBoard: IRowBoard[] = []
+  private boardSub!: Subscription;
 
   constructor(
     private dataTablesService: DataTablesService
   ){}
 
   ngOnInit(): void {
-    this.tableSub = this.dataTablesService.getTableObservable()
+    this.hasSubscription && (
+      this.boardSub = this.dataTablesService.getBoardObservable()
       .subscribe((res) => {
-        this.dataTable = res
-      })
+        this.dataBoard = res
+      }))
   }
+
   ngOnDestroy(): void {
-    this.tableSub.unsubscribe()
+    this.boardSub.unsubscribe()
   }
 }

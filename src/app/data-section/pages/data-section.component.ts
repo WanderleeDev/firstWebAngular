@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataTablesService } from 'src/app/services/dataTables/data-tables.service';
-import { IBoardGroup } from 'src/app/services/dataTables/IRowTable.interface';
+import { IBoardGroup } from 'src/app/services/dataTables/IRowBoard.interface';
 
 @Component({
   selector: 'app-data-section',
@@ -9,22 +9,22 @@ import { IBoardGroup } from 'src/app/services/dataTables/IRowTable.interface';
   styleUrls: ['./data-section.component.scss']
 })
 export class DataSectionComponent implements OnInit, OnDestroy{
-  groupTables: IBoardGroup[]= []
-  private groupTableSub!: Subscription;
+  boardGroup: IBoardGroup[]= []
+  private boardGroupSub!: Subscription;
 
   constructor(
     private  dataTablesService: DataTablesService
   ) {}
 
   ngOnInit(): void {
-    this.groupTableSub = this.dataTablesService.getBoardGroupObservable()
+    this.boardGroupSub = this.dataTablesService.getBoardGroupObservable()
       .subscribe((res) => {
-        this.groupTables = res
+        this.boardGroup = res
       })
   }
 
   ngOnDestroy(): void {
-    this.groupTableSub.unsubscribe()
+    this.boardGroupSub.unsubscribe()
     console.log(`fin suscripción`);
   }
 }

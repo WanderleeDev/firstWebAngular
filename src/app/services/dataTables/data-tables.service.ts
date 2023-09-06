@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { IBoardGroup, IRow, IRowTable } from './IRowTable.interface';
+import { IBoardGroup, IRow, IRowBoard } from './IRowBoard.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataTablesService {
-  //private tableGroup: Array<IRow[]> = []
   private boardGroupSubject = new BehaviorSubject<IBoardGroup[]>([])
-  private tableSubject = new BehaviorSubject<IRowTable[]>([]);
-  private rowTable: IRow = {
+  private boardSubject = new BehaviorSubject<IRowBoard[]>([]);
+  private rowDta: IRow = {
     date: '',
     flag: '',
     data: '',
@@ -19,11 +18,11 @@ export class DataTablesService {
 
 
   public getRowBase(): IRow {
-    return this.rowTable
+    return this.rowDta
   }
 
-  public getTableObservable(): Observable<IRowTable[]> {
-    return this.tableSubject.asObservable();
+  public getBoardObservable(): Observable<IRowBoard[]> {
+    return this.boardSubject.asObservable();
   }
 
   public getBoardGroupObservable(): Observable<IBoardGroup[]> {
@@ -31,19 +30,19 @@ export class DataTablesService {
   }
 
   public saveRow(row: IRow, color:string) {
-    const currentTable = this.tableSubject.value; // Obtener el valor actual.
-    const rowTable: IRowTable = {
+    const currentBoard = this.boardSubject.value; // Obtener el valor actual.
+    const rowDta: IRowBoard = {
       id: `row-${crypto.randomUUID()}`,
       color: color ?? '#000',
       ...row
     }
 
-    currentTable.push(rowTable); // Agregar la fila al valor actual.
-    this.tableSubject.next(currentTable); // Notificar el cambio a los suscriptores.
-    console.log(rowTable);
+    currentBoard.push(rowDta); // Agregar la fila al valor actual.
+    this.boardSubject.next(currentBoard); // Notificar el cambio a los suscriptores.
+    console.log(rowDta);
   }
 
-  public saveTableGroup(boardData: IRowTable[]) {
+  public saveTableGroup(boardData: IRowBoard[]) {
     const currentBoardGroup = this.boardGroupSubject.value
     const board: IBoardGroup = {
       id: `board-${crypto.randomUUID()}`,
@@ -56,6 +55,6 @@ export class DataTablesService {
   }
 
   public clearTable() {
-    this.tableSubject.next([])
+    this.boardSubject.next([])
   }
 }
