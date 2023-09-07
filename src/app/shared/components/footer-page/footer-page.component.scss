@@ -2,12 +2,13 @@
   display: grid;
   gap: 2rem;
   padding-top: 2rem;
-  background-color: #333333f3;
-  backdrop-filter: blur(.3rem);
+  margin-top: 5rem;
+  background-color: #0e5f4d1f;
   background-image: url(../../../../assets/img/svg/world.svg);
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: 400% 50%;
+  backdrop-filter: blur(.3rem);
   @media (width >= 50rem) {
     grid-template-columns: repeat(3, 1fr);
     background-size: 50%;

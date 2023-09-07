@@ -12,6 +12,7 @@ import { IRowBoard } from 'src/app/services/dataTables/IRowBoard.interface';
 })
 export class ContentTableComponent  implements OnInit, OnDestroy {
   @Input() hasSubscription = true;
+  @Input() titleBoard?: string | null;
   @Input() dataBoard: IRowBoard[] = []
   private boardSub!: Subscription;
 
@@ -28,6 +29,15 @@ export class ContentTableComponent  implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.boardSub.unsubscribe()
+    this.hasSubscription && (
+      this.boardSub.unsubscribe()
+    )
+  }
+
+  public deleteRow(id: string) {
+    const newRow: IRowBoard[] =  this.dataBoard.filter((row) => row.id !== id)
+    this.dataBoard = newRow
+    console.log(this.dataBoard);
+
   }
 }

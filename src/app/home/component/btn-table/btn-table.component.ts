@@ -18,6 +18,7 @@ export class BtnTableComponent {
     this.dataTablesService.clearTable()
   }
   public saveDataBoard(table:IRowBoard[]) {
-    this.dataTablesService.saveTableGroup(table)
+    const titleBoard: string | null = prompt('Define a name for your table')
+    this.dataTablesService.saveTableGroup(table, titleBoard)
   }
 }

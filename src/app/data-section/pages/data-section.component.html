@@ -1,14 +1,19 @@
-<section *ngIf="boardGroup.length > 0; else emptySection">
-  <h2>Your Tables</h2>
-  <div *ngFor="let table  of boardGroup">
-    <p>{{table.id}}</p>
-    <app-content-table [hasSubscription]="false"/>
-    <pre>
-      <code>
-        {{table.boardDta | json}}
-      </code>
-    </pre>
-  </div>
+<section class="boardsSection" *ngIf="boardGroup.length > 0; else emptySection">
+  <h2 class="boardsSection-title">My created tables</h2>
+  <figure *ngFor="let table  of boardGroup">
+    <figcaption>
+    </figcaption>
+      <app-content-table
+        [hasSubscription]="false"
+        [dataBoard]="table.boardDta"
+        [titleBoard]="table.title"/>
+      <button class="boardWrapper-btn"
+        (click)="deleteBoard(table.id)"
+        aria-label="Delete table"
+        title="Delete table">
+        Delete table
+      </button>
+  </figure>
 </section>
 
 <ng-template #emptySection>

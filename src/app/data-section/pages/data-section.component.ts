@@ -25,6 +25,9 @@ export class DataSectionComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.boardGroupSub.unsubscribe()
-    console.log(`fin suscripción`);
+  }
+
+  public deleteBoard(idBoard: string) {
+    this.dataTablesService.deleteBoard(idBoard)
   }
 }

@@ -8,18 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DataTablesService {
   private boardGroupSubject = new BehaviorSubject<IBoardGroup[]>([])
   private boardSubject = new BehaviorSubject<IRowBoard[]>([]);
-  private rowDta: IRow = {
-    date: '',
-    flag: '',
-    data: '',
-    item: '',
-    price: ''
-  }
 
-
-  public getRowBase(): IRow {
-    return this.rowDta
-  }
 
   public getBoardObservable(): Observable<IRowBoard[]> {
     return this.boardSubject.asObservable();
@@ -37,21 +26,34 @@ export class DataTablesService {
       ...row
     }
 
-    currentBoard.push(rowDta); // Agregar la fila al valor actual.
-    this.boardSubject.next(currentBoard); // Notificar el cambio a los suscriptores.
-    console.log(rowDta);
+    currentBoard.push(rowDta);
+    this.boardSubject.next(currentBoard);
   }
 
-  public saveTableGroup(boardData: IRowBoard[]) {
+  public saveTableGroup(boardData: IRowBoard[], title: string| null) {
     const currentBoardGroup = this.boardGroupSubject.value
     const board: IBoardGroup = {
       id: `board-${crypto.randomUUID()}`,
+      title: title,
       boardDta: boardData
     }
+
     currentBoardGroup.push(board)
     this.boardGroupSubject.next(currentBoardGroup)
-    console.log(this.boardGroupSubject.value);
     this.clearTable()
+    console.log(this.boardGroupSubject.value);
+
+  }
+
+  public editBoard(newBoard: IRowBoard[]) {
+    this.boardSubject.next(newBoard)
+  }
+
+  public deleteBoard(id: string) {
+    const filteredTables = this.boardGroupSubject.value.filter((board) => {
+      return board.id !== id
+    })
+    this.boardGroupSubject.next(filteredTables)
   }
 
   public clearTable() {

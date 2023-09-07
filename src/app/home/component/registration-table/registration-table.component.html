@@ -5,17 +5,17 @@
   [formGroup]="formData"
   autocomplete="off">
 
-  <label *ngFor="let input of listInput | keyvalue" [for]="input.key" class="registrationTable-label">
+  <label *ngFor="let input of formInputs" class="registrationTable-label">
     <span class="registrationTable-title">
-      {{input.key}} :
+      {{input}} :
     </span>
     <div class="registrationTable-group">
       <input
         class="registrationTable-input"
-        [id]="input.key"
+        [id]="input"
         type="text"
-        [name]="input.key"
-        [formControlName]="input.key">
+        [name]="input"
+        [formControlName]="input">
       <span class="registrationTable-infoIcon">&#9432;</span>
     </div>
 
