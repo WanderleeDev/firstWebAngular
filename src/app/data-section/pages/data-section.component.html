@@ -1,8 +1,9 @@
 <section class="boardsSection" *ngIf="boardGroup.length > 0; else emptySection">
-  <h2 class="boardsSection-title">My created tables</h2>
+  <header class="boardsSection-header">
+    <h2 class="boardsSection-title">My created tables</h2>
+
+  </header>
   <figure *ngFor="let table  of boardGroup">
-    <figcaption>
-    </figcaption>
       <app-content-table
         [hasSubscription]="false"
         [dataBoard]="table.boardDta"

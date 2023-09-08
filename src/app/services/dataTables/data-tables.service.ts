@@ -42,7 +42,6 @@ export class DataTablesService {
     this.boardGroupSubject.next(currentBoardGroup)
     this.clearTable()
     console.log(this.boardGroupSubject.value);
-
   }
 
   public editBoard(newBoard: IRowBoard[]) {

@@ -31,7 +31,7 @@
         <td data="Price" >{{d.price | currency}}</td>
         <td data="Delete">
           <button class="btnDelete"
-            (click)="deleteRow(d.id)"
+            (click)="deleteRow(d.id, hasSubscription)"
             title="delete item"
             aria-label="delete item"
           >🗑️</button>

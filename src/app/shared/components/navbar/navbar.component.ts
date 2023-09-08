@@ -28,7 +28,5 @@ export class NavbarComponent {
 
   isClicked() {
     this.hasNavActive = !this.hasNavActive;
-    console.log('[DEBUG] Data saved:', this.hasNavActive);
-
   }
 }

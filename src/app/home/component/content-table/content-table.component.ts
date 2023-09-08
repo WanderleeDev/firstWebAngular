@@ -34,10 +34,15 @@ export class ContentTableComponent  implements OnInit, OnDestroy {
     )
   }
 
-  public deleteRow(id: string) {
-    const newRow: IRowBoard[] =  this.dataBoard.filter((row) => row.id !== id)
-    this.dataBoard = newRow
-    console.log(this.dataBoard);
-
+  public deleteRow(id: string, hasSubscription: boolean) {
+    if (hasSubscription) {
+      const newRow: IRowBoard[] =  this.dataBoard.filter((row) => row.id !== id)
+      this.dataTablesService.editBoard(newRow)
+    } else {
+      console.log(this.dataTablesService.getBoardGroupObservable()
+      .subscribe(res => console.log(res)
+      ));
+    }
   }
+
 }

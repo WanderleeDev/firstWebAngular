@@ -1,7 +1,7 @@
 .boardsSection {
   display: grid;
   gap: 2rem;
-  &-title {
+  &-header {
     position: relative;
     font-size: 2rem;
     text-transform: uppercase;
@@ -10,13 +10,13 @@
     width: 80%;
     margin-inline: auto;
     &::after {
+      width: 100%;
+      height: .2rem;
       content: '';
       position: absolute;
-      bottom: 0;
-      width: 10rem;
-      height: 2rem;
-      color: #25ac97;
-      opacity: 1;
+      right: 0;
+      background: linear-gradient(72deg, transparent, var(--colorSecondary, #25ac97));
+      border-radius: var(--radius-sm);
     }
   }
 }
