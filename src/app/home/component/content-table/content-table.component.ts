@@ -13,6 +13,7 @@ import { IRowBoard } from 'src/app/services/dataTables/IRowBoard.interface';
 export class ContentTableComponent  implements OnInit, OnDestroy {
   @Input() hasSubscription = true;
   @Input() titleBoard?: string | null;
+  @Input() idBoard: string | undefined = undefined;
   @Input() dataBoard: IRowBoard[] = []
   private boardSub!: Subscription;
 
@@ -34,15 +35,14 @@ export class ContentTableComponent  implements OnInit, OnDestroy {
     )
   }
 
-  public deleteRow(id: string, hasSubscription: boolean) {
-    if (hasSubscription) {
-      const newRow: IRowBoard[] =  this.dataBoard.filter((row) => row.id !== id)
+  public deleteRow(idRow: string, idTable: string | undefined) {
+    if (this.hasSubscription) {
+      const newRow: IRowBoard[] =  this.dataBoard.filter((row) => row.id !== idRow)
       this.dataTablesService.editBoard(newRow)
-    } else {
-      console.log(this.dataTablesService.getBoardGroupObservable()
-      .subscribe(res => console.log(res)
-      ));
+    }
+
+    if(!this.hasSubscription && idTable !== undefined) {
+      this.dataTablesService.deleteRowV2(idRow, idTable)
     }
   }
-
 }

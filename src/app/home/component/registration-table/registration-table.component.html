@@ -5,7 +5,8 @@
   [formGroup]="formData"
   autocomplete="off">
 
-  <label *ngFor="let input of formInputs" class="registrationTable-label">
+  <label *ngFor="let input of formInputs"
+    class="registrationTable-label">
     <span class="registrationTable-title">
       {{input}} :
     </span>
@@ -17,6 +18,10 @@
         [name]="input"
         [formControlName]="input">
       <span class="registrationTable-infoIcon">&#9432;</span>
+      <div class="wrapperMsn">
+        <p class="wrapperMsn-msn wrapperMsn--valid">Msn valid</p>
+        <p class="wrapperMsn-msn wrapperMsn--error">Msn error</p>
+      </div>
     </div>
 
   </label>

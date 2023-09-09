@@ -61,7 +61,7 @@ export class RegistrationDataService {
   //  valida y obtiene el valor del formulario
   public validateForm(form: FormGroup<IFormValidate>): any {
     return (form.valid)
-      ? (console.log(form.value), form.value)
+      ? form.value
       : form.errors
   }
 }
