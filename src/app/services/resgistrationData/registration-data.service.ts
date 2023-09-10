@@ -1,32 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 //  interface
 import { IFormValidate } from './IFormValidate.interface';
+import { IErrorMessages } from './IErrorMsn.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationDataService {
   private pattern = {
-    number:  '^[0-9]+$',
+    number:  '^[0-9]+(\\.[0-9]{1,2})?$',
     date:'^(0?[1-9]|1[0-2])[-/](0?[1-9]|[12]\\d|3[01])[-/](\\d{2}|\\d{4})$',
     data: '^[^{}\\[\\]<>+\\-@]+$'
   }
-  private errorMessages = {
+  private errorMessages:IErrorMessages = {
     basic: {
-      required: 'El campo Item es obligatorio.',
+      required: 'This field is required.',
     },
     item: {
-      pattern: 'El campo Item no tiene un formato válido.',
+      pattern: 'It should not contain special characters.',
     },
     date: {
-      pattern: 'El campo Date no tiene un formato válido.',
+      pattern: 'The valid format should be: month/day/year.',
     },
     data: {
-      pattern: 'El campo Data no tiene un formato válido.',
+      pattern: 'It should not contain special characters.',
     },
     price: {
-      pattern: 'El campo Price no tiene un formato válido.',
+      pattern: 'The number should have a maximum of 2 decimal places.',
+    },
+    flag: {
+      pattern: 'It should not contain special characters.',
     },
   };
   private formValidate: FormGroup<IFormValidate> = this.formBuilder.group({
@@ -38,7 +42,10 @@ export class RegistrationDataService {
       Validators.required,
       Validators.pattern(this.pattern.date)
     ]],
-    flag: ['' ,Validators.required],
+    flag: ['' ,[
+      Validators.required,
+      Validators.pattern(this.pattern.data)
+    ]],
     data: ['' ,[
       Validators.required,
       Validators.pattern(this.pattern.data)
@@ -63,5 +70,18 @@ export class RegistrationDataService {
     return (form.valid)
       ? form.value
       : form.errors
+  }
+  public getValid(fieldName: string): boolean {
+    const field = this.formValidate.get(fieldName)
+
+    return field
+      ? field.invalid && (field.dirty || field.touched)
+      : false
+  }
+  public getInputState(nameInput: string) {
+    return this.formValidate.get(nameInput) as FormControl
+  }
+  public getMsnErrors() {
+    return this.errorMessages
   }
 }

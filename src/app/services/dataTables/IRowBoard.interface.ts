@@ -13,6 +13,6 @@ export interface IRowBoard extends IRow {
 
 export interface IBoardGroup {
   id: string,
-  title: string| null,
+  title: string | null,
   boardDta: IRowBoard[]
 }

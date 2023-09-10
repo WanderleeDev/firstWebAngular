@@ -1,36 +1,23 @@
 import { Injectable } from '@angular/core';
-import { ITotalData } from 'src/app/shared/interface/totalData.interface';
+//  interface
+import { IBoardGroup } from '../dataTables/IRowBoard.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
 
-
-  private mainTotalData:ITotalData[] = []
-
-  saveTemporalProducts(objData: ITotalData){
-    this.mainTotalData.push(objData )
-  }
-
   // guarda datos en el local storage
-  saveLocal(object: ITotalData[]){
-    localStorage.setItem('data',JSON.stringify(object));
-    console.log(`'[DEBUG] Data saved:' ${object}`);
+  saveLocal(object: IBoardGroup[]){
+    localStorage.setItem('boardGroup',JSON.stringify(object));
   }
 
   //  recupera datos del local storage
-  getLocalData(): ITotalData[] {
-    const dataStorage = localStorage.getItem('data');
-
-    if (dataStorage !== null ) {
-      try {
-        return JSON.parse(dataStorage);
-      } catch (error) {
-        console.error(`'[DEBUG] Error parsing data:' ${error}`);
-      }
-    }
-    return [];
+  getLocalData(localName: string): IBoardGroup[] | [] {
+    const data = localStorage.getItem(localName)
+    return (data)
+      ? JSON.parse(data)
+      : [];
   }
 
   //Limpia los datos almacenados en el local storage

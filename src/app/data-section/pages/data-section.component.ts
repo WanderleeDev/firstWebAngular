@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+// service
 import { DataTablesService } from 'src/app/services/dataTables/data-tables.service';
+// interface
 import { IBoardGroup } from 'src/app/services/dataTables/IRowBoard.interface';
 
 @Component({

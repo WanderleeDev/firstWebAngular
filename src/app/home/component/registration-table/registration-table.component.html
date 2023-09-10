@@ -18,12 +18,19 @@
         [name]="input"
         [formControlName]="input">
       <span class="registrationTable-infoIcon">&#9432;</span>
-      <div class="wrapperMsn">
-        <p class="wrapperMsn-msn wrapperMsn--valid">Msn valid</p>
-        <p class="wrapperMsn-msn wrapperMsn--error">Msn error</p>
+
+      <div [hidden]="!getStateInp(input).touched" class="wrapperMsn">
+        <p [hidden]="!getStateInp(input).valid" class="wrapperMsn-msn wrapperMsn--valid">
+          Format valid
+        </p>
+        <p [hidden]="!getStateInp(input).errors?.['required']" class="wrapperMsn-msn wrapperMsn--error">
+          {{msnErrors.basic.required}}
+        </p>
+        <p [hidden]="!getStateInp(input).errors?.['pattern']" class="wrapperMsn-msn wrapperMsn--error">
+          {{ msnErrors[input]['pattern'] }}
+        </p>
       </div>
     </div>
-
   </label>
   <div class="registrationTable-footer">
     <app-colo-picker (colorEmitter)="getColor($event)" />

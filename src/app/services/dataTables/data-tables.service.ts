@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IBoardGroup, IRow, IRowBoard } from './IRowBoard.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
+//  services
+import { LocalStorageService } from '../localStorage/local-storage.service';
+//  interface
 import { IdGeneratorService } from '../idGenerator/id-generator.service';
 
 @Injectable({
@@ -11,8 +14,12 @@ export class DataTablesService {
   private boardSubject = new BehaviorSubject<IRowBoard[]>([]);
 
   constructor(
-    private idGenerator: IdGeneratorService
-  ){}
+    private idGenerator: IdGeneratorService,
+    private localStorage: LocalStorageService
+  ){
+    this.boardGroupSubject
+      .next(localStorage.getLocalData('boardGroup'))
+  }
 
 
   public getBoardObservable(): Observable<IRowBoard[]> {
@@ -45,6 +52,7 @@ export class DataTablesService {
 
     currentBoardGroup.push(board)
     this.boardGroupSubject.next(currentBoardGroup)
+    this.localStorage.saveLocal(currentBoardGroup)
     this.clearTable()
   }
 
@@ -57,6 +65,7 @@ export class DataTablesService {
       return board.id !== id
     })
     this.boardGroupSubject.next(filteredTables)
+    this.localStorage.saveLocal(filteredTables)
   }
 
   public clearTable() {
@@ -79,8 +88,14 @@ export class DataTablesService {
       //  ? Si el array esta vació lo elimina con el método deleteBoard
       //  : De lo contrario actualiza el valor previo envía el valor a los observadores
       newBoard.boardDta.length === 0
-        ? this.deleteBoard(newBoard.id)
-        : this.boardGroupSubject.next([...preValue])
+        ? (
+            this.deleteBoard(newBoard.id),
+            this.localStorage.saveLocal(this.boardGroupSubject.value)
+          )
+        : (
+            this.boardGroupSubject.next([...preValue]),
+            this.localStorage.saveLocal(this.boardGroupSubject.value)
+          )
     }
   }
 }
