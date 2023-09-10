@@ -17,7 +17,12 @@
         type="text"
         [name]="input"
         [formControlName]="input">
-      <span class="registrationTable-infoIcon">&#9432;</span>
+      <button
+        class="registrationTable-infoIcon"
+        (click)="showModal()"
+        aria-label="show modal help">
+        &#9432;
+      </button>
 
       <div [hidden]="!getStateInp(input).touched" class="wrapperMsn">
         <p [hidden]="!getStateInp(input).valid" class="wrapperMsn-msn wrapperMsn--valid">
@@ -30,6 +35,7 @@
           {{ msnErrors[input]['pattern'] }}
         </p>
       </div>
+      <app-modal-help [isViewModal]="isViewModal"/>
     </div>
   </label>
   <div class="registrationTable-footer">

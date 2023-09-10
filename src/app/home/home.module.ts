@@ -10,6 +10,7 @@ import { EmptyStateComponent } from './component/empty-state/empty-state.compone
 import { BtnTableComponent } from './component/btn-table/btn-table.component';
 import { ColoPickerComponent } from './component/colo-picker/colo-picker.component';
 import { ColorTransparencyPipe } from './pipes/color-transparency.pipe';
+import { ModalHelpComponent } from './component/modal-help/modal-help.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ColorTransparencyPipe } from './pipes/color-transparency.pipe';
     BtnTableComponent,
     ColoPickerComponent,
     ColorTransparencyPipe,
+    ModalHelpComponent,
   ],
   imports: [
     CommonModule,

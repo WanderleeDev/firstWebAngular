@@ -17,6 +17,7 @@ export class RegistrationTableComponent implements OnInit{
   colorRow!:string;
   formInputs!:string[];
   msnErrors!: IErrorMessages;
+  isViewModal = false;
 
   constructor(
     private registrationDataService: RegistrationDataService,
@@ -26,7 +27,6 @@ export class RegistrationTableComponent implements OnInit{
   public ngOnInit(): void {
     this.formData = this.registrationDataService.getFormValidate()
     this.formInputs = Object.keys(this.formData.controls)
-    console.log(this.formData);
     this.msnErrors = this.registrationDataService.getMsnErrors()
   }
 
@@ -44,8 +44,10 @@ export class RegistrationTableComponent implements OnInit{
   }
 
   public getStateInp(input: string): FormControl {
-    console.log('dss');
     return this.registrationDataService.getInputState(input)
+  }
 
+  public showModal() {
+    this.isViewModal = !this.isViewModal
   }
 }

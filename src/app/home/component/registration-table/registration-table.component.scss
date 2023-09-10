@@ -48,13 +48,14 @@
   &-infoIcon{
     position: absolute;
     font-weight: 700;
-    color: rgb(100, 100, 100);
+    color: #fafafa;
     top: 50%;
     right: .5rem;
     transform: translateY(-50%);
     transition: color .2s linear;
+    cursor: pointer;
     &:hover{
-      color: rgb(128, 128, 128);
+      color: var(--colorSecondary);
     }
   }
 
