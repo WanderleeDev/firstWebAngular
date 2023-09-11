@@ -17,7 +17,6 @@ export class RegistrationTableComponent implements OnInit{
   colorRow!:string;
   formInputs!:string[];
   msnErrors!: IErrorMessages;
-  isViewModal = false;
 
   constructor(
     private registrationDataService: RegistrationDataService,
@@ -45,9 +44,5 @@ export class RegistrationTableComponent implements OnInit{
 
   public getStateInp(input: string): FormControl {
     return this.registrationDataService.getInputState(input)
-  }
-
-  public showModal() {
-    this.isViewModal = !this.isViewModal
   }
 }

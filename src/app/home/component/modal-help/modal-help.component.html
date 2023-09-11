@@ -1,10 +1,12 @@
-<aside *ngIf="isViewModal"
-  class="msnHelp">
+<aside class="msnHelp">
   <header class="msnHelp-header">
-    Valid format:
+    Valid format
   </header>
-  <p class="msnHelp-content">
-    <strong>Date Format:</strong>
-    <time datetime="2022-06-28">June 28, 2022</time>
-  </p>
+  <div class="msnHelp-content">
+    <strong class="msnHelp-subTitle">Sample format</strong>
+      <p class="msnHelp-text">
+        <span>{{msnHelp?.valid}}</span>
+        <span>{{msnHelp?.invalid}}</span>
+      </p>
+  </div>
 </aside>

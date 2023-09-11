@@ -53,10 +53,21 @@
     right: .5rem;
     transform: translateY(-50%);
     transition: color .2s linear;
-    cursor: pointer;
+    cursor: help;
+    z-index: 15;
     &:hover{
       color: var(--colorSecondary);
     }
+    &:hover ~ .registrationTable-modal {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &-modal {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity linear .2s;
   }
 
   &-infoText{
@@ -81,6 +92,10 @@
     background-color: #f0f8ff71;
     color: #333;
     letter-spacing: 0.1rem;
+    &:focus {
+      outline: .15rem dotted var(--colorSecondary);
+      outline-offset: .2rem;
+    }
   }
 
   &-footer{

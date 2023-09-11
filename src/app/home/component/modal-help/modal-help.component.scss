@@ -3,7 +3,7 @@
   inset: 50% auto auto 50%;
   display: grid;
   gap: .5rem;
-  width: 14rem;
+  width: 100%;
   padding: .7rem;
   background-color: #000000;
   text-align: center;
@@ -11,14 +11,27 @@
   border-radius: var(--radius-sm, .1rem);
   transform: translate(-50%, -50%);
   user-select: none;
+  z-index: 5;
 
   &-header {
     background-color: var(--colorSecondary, #25ac97);
     padding: .3rem .6rem;
-    color: #333;
+    font-weight: 600;
+    letter-spacing: .1rem;
+  }
+
+  &-subTitle {
+    letter-spacing: .1rem;
   }
 
   &-content {
     display: grid;
+  }
+
+  &-text {
+    display: flex;
+    justify-content: center;
+    gap: 0 1rem;
+    flex-flow: row wrap;
   }
 }

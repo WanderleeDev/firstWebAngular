@@ -17,25 +17,30 @@
         type="text"
         [name]="input"
         [formControlName]="input">
-      <button
+      <span
         class="registrationTable-infoIcon"
-        (click)="showModal()"
+        type="button"
         aria-label="show modal help">
         &#9432;
-      </button>
+      </span>
 
-      <div [hidden]="!getStateInp(input).touched" class="wrapperMsn">
-        <p [hidden]="!getStateInp(input).valid" class="wrapperMsn-msn wrapperMsn--valid">
+      <div [hidden]="!getStateInp(input).touched"
+        class="wrapperMsn">
+        <p [hidden]="!getStateInp(input).valid"
+          class="wrapperMsn-msn wrapperMsn--valid">
           Format valid
         </p>
-        <p [hidden]="!getStateInp(input).errors?.['required']" class="wrapperMsn-msn wrapperMsn--error">
+        <p [hidden]="!getStateInp(input).errors?.['required']"
+          class="wrapperMsn-msn wrapperMsn--error">
           {{msnErrors.basic.required}}
         </p>
-        <p [hidden]="!getStateInp(input).errors?.['pattern']" class="wrapperMsn-msn wrapperMsn--error">
+        <p [hidden]="!getStateInp(input).errors?.['pattern']"
+          class="wrapperMsn-msn wrapperMsn--error">
           {{ msnErrors[input]['pattern'] }}
         </p>
       </div>
-      <app-modal-help [isViewModal]="isViewModal"/>
+      <app-modal-help class="registrationTable-modal"
+        [msnHelp]="msnErrors[input]['msnHelp']"/>
     </div>
   </label>
   <div class="registrationTable-footer">
