@@ -13,15 +13,3 @@ body{
   background: #0D0F14;
   background-image: url(../src/assets/img/svg/bg-grid.svg);
 }
-
-@keyframes move{
-  0%{
-    background-size: 100% 100%;
-  }
-  50%{
-    background-size: 200% 100%;
-  }
-  100%{
-    background-size: 100% 100%;
-  }
-}

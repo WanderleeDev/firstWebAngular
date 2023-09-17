@@ -134,6 +134,7 @@
       position: relative;
       background-color: gray;
       cursor: not-allowed;
+      z-index: 20;
       &::after,
       &::before {
         position: absolute;
@@ -153,7 +154,6 @@
         font-size: .9rem;
         line-height: 1.5;
         transform: translateY(-6rem) translateX(-2rem);
-        z-index: 1;
       }
       &::after {
         position: absolute;
